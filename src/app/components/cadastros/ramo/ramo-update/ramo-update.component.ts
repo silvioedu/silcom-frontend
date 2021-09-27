@@ -1,4 +1,4 @@
-import { Ramo } from './../model/ramo.model';
+import { Ramo } from '../model/ramo.model';
 import { Component, OnInit } from '@angular/core';
 import { RamoService } from '../service/ramo.service';
 import { ActivatedRoute, Router } from '@angular/router';

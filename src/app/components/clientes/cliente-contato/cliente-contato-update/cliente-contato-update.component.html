@@ -1,0 +1,41 @@
+<mat-card class="card">
+
+  <h1>Alterar contato do cliente</h1>
+
+  <form>
+
+      <mat-form-field>
+          <input matInput placeholder="Id" [(ngModel)]="id" name="id" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tipo</mat-label>
+        <mat-select [(ngModel)]="selected.contatoTipo" name="ramoId">
+          <mat-option *ngFor="let contatoTipo of contatoTipos" [value]="contatoTipo.id">
+            {{ contatoTipo.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput placeholder="Contato" [(ngModel)]="clienteContato.contato" name="contato" maxlength="80">
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea type="text" [(ngModel)]="clienteContato.observacoes" matInput placeholder="Observações" name="observacoes" maxlength="255" cols="120" rows="2"></textarea>
+      </mat-form-field>
+  </form>
+
+  <div class="actions">
+    <button type="button" mat-raised-button (click)="update()" color="primary">
+        Atualizar
+    </button>
+
+    <button type="button" mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+  </div>
+
+</mat-card>
+
+

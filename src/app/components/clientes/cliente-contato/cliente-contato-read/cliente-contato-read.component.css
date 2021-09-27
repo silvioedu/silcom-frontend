@@ -22,14 +22,6 @@ tr.element-row:hover {
   color: #F25A2E;
 }
 
-.contact {
-  margin-right: 10px;
-}
-
-.contact em {
-  color: cadetblue
-}
-
 .mat-form-field {
   padding: 5px 20px;
   font-size: 14px;
@@ -60,4 +52,19 @@ h1 {
 .not-found {
   text-align: center;
   font-style: italic;
+}
+
+div.actions {
+  margin-right: 50px;
+  margin-bottom: 30px;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  margin-bottom: 20px;
 }
