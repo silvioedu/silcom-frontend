@@ -1,0 +1,49 @@
+<mat-card class="card">
+
+  <h1>Alterar documento do cliente</h1>
+
+  <form>
+
+      <mat-form-field>
+          <input matInput placeholder="Id" [(ngModel)]="id" name="id" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tipo</mat-label>
+        <mat-select [(ngModel)]="selected.documentoTipo" name="ramoId">
+          <mat-option *ngFor="let documentoTipo of documentoTipos" [value]="documentoTipo.id">
+            {{ documentoTipo.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput placeholder="Documento" [(ngModel)]="clienteDocumento.documento" name="documento" maxlength="80">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Isento</mat-label>
+        <mat-select [(ngModel)]="selected.isento" name="isento">
+          <mat-option value="false">Não</mat-option>
+          <mat-option value="true">Sim</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea type="text" [(ngModel)]="clienteDocumento.observacoes" matInput placeholder="Observações" name="observacoes" maxlength="255" cols="120" rows="2"></textarea>
+      </mat-form-field>
+  </form>
+
+  <div class="actions">
+    <button type="button" mat-raised-button (click)="update()" color="primary">
+        Atualizar
+    </button>
+
+    <button type="button" mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+  </div>
+
+</mat-card>
+
+
