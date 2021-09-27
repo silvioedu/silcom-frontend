@@ -43,6 +43,10 @@ const routes: Routes = [
   {
     path: 'cadastros/documentos-tipos',
     loadChildren: () => import('./components/cadastros/documento-tipo/documento-tipo.module').then(m => m.DocumentoTipoModule)
+  },
+  {
+    path: 'clientes',
+    loadChildren: () => import('./components/clientes/cliente/cliente.module').then(m => m.ClienteModule)
   }
 ];
 

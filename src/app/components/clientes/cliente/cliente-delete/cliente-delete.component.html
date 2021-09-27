@@ -1,0 +1,50 @@
+<mat-card class="card">
+
+  <h1>Excluir cliente</h1>
+
+  <form>
+
+    <mat-form-field>
+        <input class="field" matInput placeholder="Id" [value]="cliente.id" name="id" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input class="field" matInput placeholder="Razão Social" [value]="cliente.razaoSocial" name="razaoSocial" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Nome Fantasia" [value]="cliente.nomeFantasia" name="nomeFantasia" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Ramo" [value]="cliente.ramoNome" name="ramoNome" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Tipo pessoa" [value]="cliente.tipoPessoa" name="tipoPessoa" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea class="field" matInput placeholder="Observações" [value]="cliente.observacoes" name="observacoes" disabled rows="2"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Data criação" [value]="cliente.dataCriacao * 1000 | date: 'yyyy-MM-dd HH:mm:ss'" name="dataCriacao" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Data Atualização" [value]="cliente.dataAtualizacao * 1000 | date: 'yyyy-MM-dd HH:mm:ss'" name="dataAtualizacao" disabled>
+    </mat-form-field>
+
+    <div class="actions">
+      <button type="button" mat-raised-button (click)="delete()" color="warn">
+        Excluir
+      </button>
+
+      <button type="button" mat-raised-button (click)="cancel()">
+          Cancelar
+      </button>
+    </div>
+    </form>
+
+</mat-card>

@@ -1,0 +1,53 @@
+<mat-card class="card">
+
+  <h1>Alterar cliente</h1>
+
+  <form>
+
+      <mat-form-field>
+          <input matInput placeholder="Id" [(ngModel)]="clienteId" name="id" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput placeholder="Razão Social" [(ngModel)]="cliente.razaoSocial" name="razaoSocial" maxlength="100">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Nome Fantasia" [(ngModel)]="cliente.nomeFantasia" name="nomeFantasia" maxlength="100">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Ramo</mat-label>
+        <mat-select [(ngModel)]="selected.ramo" name="ramoId">
+          <mat-option *ngFor="let ramo of ramos" [value]="ramo.id">
+            {{ ramo.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tipo pessoa</mat-label>
+        <mat-select [(ngModel)]="selected.tipoPessoa" name="tipoPessoa">
+          <mat-option value="F">Física</mat-option>
+          <mat-option value="J">Jurídica</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea type="text" [(ngModel)]="cliente.observacoes" matInput placeholder="Observações" name="observacoes" maxlength="255" cols="120" rows="2"></textarea>
+      </mat-form-field>
+  </form>
+
+  <div class="actions">
+    <button type="button" mat-raised-button (click)="update()" color="primary">
+        Atualizar
+    </button>
+
+    <button type="button" mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+  </div>
+
+</mat-card>
+
+

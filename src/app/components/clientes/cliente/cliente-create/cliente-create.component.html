@@ -1,0 +1,50 @@
+<mat-card class="card">
+
+  <h1>Adicionar cliente</h1>
+
+  <form>
+
+    <mat-form-field>
+      <input type="text" [(ngModel)]="cliente.razaoSocial" matInput placeholder="Razão Social" name="razaoSocial" maxlength="100">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" [(ngModel)]="cliente.nomeFantasia" matInput placeholder="Nome Fantasia" name="nomeFantasia" maxlength="100">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Ramo</mat-label>
+      <mat-select [(ngModel)]="selected.ramo" name="ramoId">
+        <mat-option *ngFor="let ramo of ramos" [value]="ramo.id">
+          {{ ramo.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Tipo pessoa</mat-label>
+      <mat-select [(ngModel)]="selected.tipoPessoa" name="tipoPessoa">
+        <mat-option value="F">Física</mat-option>
+        <mat-option value="J">Jurídica</mat-option>
+      </mat-select>
+
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea type="text" [(ngModel)]="cliente.observacoes" matInput placeholder="Observações" name="observacoes" maxlength="255" cols="120" rows="2"></textarea>
+    </mat-form-field>
+  </form>
+
+  <div class="actions">
+    <button type="button" mat-raised-button (click)="create()" color="primary">
+        Salvar
+    </button>
+
+    <button type="button" mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+  </div>
+
+</mat-card>
+
+

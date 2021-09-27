@@ -9,23 +9,23 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 
-import { ProdutoCreateComponent } from './produto-create/produto-create.component';
-import { ProdutoDeleteComponent } from './produto-delete/produto-delete.component';
-import { ProdutoReadComponent } from './produto-read/produto-read.component';
-import { ProdutoRoutingModule } from './produto-routing.module';
-import { ProdutoUpdateComponent } from './produto-update/produto-update.component';
+import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
+import { ClienteDeleteComponent } from './cliente-delete/cliente-delete.component';
+import { ClienteReadComponent } from './cliente-read/cliente-read.component';
+import { ClienteRoutingModule } from './cliente-routing.module';
+import { ClienteUpdateComponent } from './cliente-update/cliente-update.component';
 
 
 @NgModule({
   declarations: [
-    ProdutoCreateComponent,
-    ProdutoReadComponent,
-    ProdutoUpdateComponent,
-    ProdutoDeleteComponent
+    ClienteCreateComponent,
+    ClienteReadComponent,
+    ClienteUpdateComponent,
+    ClienteDeleteComponent
   ],
   imports: [
     CommonModule,
-    ProdutoRoutingModule,
+    ClienteRoutingModule,
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
@@ -36,4 +36,4 @@ import { ProdutoUpdateComponent } from './produto-update/produto-update.componen
     MatSelectModule
   ]
 })
-export class ProdutoModule { }
+export class ClienteModule { }
