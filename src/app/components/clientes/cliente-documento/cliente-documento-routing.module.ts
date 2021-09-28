@@ -22,7 +22,6 @@ const routes: Routes = [
     path: ':clienteId/update/:id',
     component: ClienteDocumentoUpdateComponent
   }
-
 ];
 
 @NgModule({

@@ -1,0 +1,62 @@
+<mat-card class="card">
+
+  <h1>Excluir endereço</h1>
+
+  <form>
+
+    <mat-form-field>
+        <input class="field" matInput placeholder="Id" [value]="clienteEndereco.id" name="id" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input class="field" matInput placeholder="Cep" [value]="clienteEndereco.cep" name="cep" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Logradouro" [value]="clienteEndereco.logradouro" name="logradouro" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Número" [value]="clienteEndereco.numero" name="numero" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Complemento" [value]="clienteEndereco.complemento" name="complemento" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Bairro" [value]="clienteEndereco.bairro" name="bairro" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Cidade" [value]="clienteEndereco.cidade" name="cidade" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Estado" [value]="clienteEndereco.estado" name="estado" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea class="field" matInput placeholder="Observações" [value]="clienteEndereco.observacoes" name="observacoes" disabled rows="2"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Data criação" [value]="clienteEndereco.dataCriacao * 1000 | date: 'yyyy-MM-dd HH:mm:ss'" name="dataCriacao" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Data Atualização" [value]="clienteEndereco.dataAtualizacao * 1000 | date: 'yyyy-MM-dd HH:mm:ss'" name="dataAtualizacao" disabled>
+    </mat-form-field>
+
+    <div class="actions">
+      <button type="button" mat-raised-button (click)="delete()" color="warn">
+        Excluir
+      </button>
+
+      <button type="button" mat-raised-button (click)="cancel()">
+          Cancelar
+      </button>
+    </div>
+    </form>
+
+</mat-card>

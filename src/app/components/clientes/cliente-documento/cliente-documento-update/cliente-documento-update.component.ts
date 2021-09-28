@@ -76,6 +76,6 @@ export class ClienteDocumentoUpdateComponent implements OnInit {
   cancel(): void{
     const uri = `clientes/documentos/${this.clienteId}`
     this.router.navigate([uri])
-}
+  }
 
 }

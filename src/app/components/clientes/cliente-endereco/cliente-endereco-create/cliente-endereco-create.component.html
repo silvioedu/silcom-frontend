@@ -1,0 +1,61 @@
+<mat-card class="card">
+
+  <h1>Adicionar endereço do cliente</h1>
+
+  <form>
+
+    <div class="consulta-cep">
+      <mat-form-field>
+          <input type="text"consulta-cep [(ngModel)]="clienteEndereco.cep" matInput placeholder="Cep" name="cep" maxlength="9">
+      </mat-form-field>
+
+      <button type="button" mat-raised-button (click)="findCep()" color="primary">
+          <em class="material-icons">
+            search
+          </em>
+      </button>
+    </div>
+
+    <mat-form-field>
+      <input type="text" [(ngModel)]="clienteEndereco.logradouro" matInput placeholder="Logradouro" name="logradouro" maxlength="100">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" [(ngModel)]="clienteEndereco.numero" matInput placeholder="Número" name="numero" maxlength="20">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" [(ngModel)]="clienteEndereco.complemento" matInput placeholder="Complemento" name="complemento" maxlength="100">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" [(ngModel)]="clienteEndereco.bairro" matInput placeholder="Bairro" name="bairro" maxlength="60">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" [(ngModel)]="clienteEndereco.cidade" matInput placeholder="Cidade" name="cidade" maxlength="60">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" [(ngModel)]="clienteEndereco.estado" matInput placeholder="Estado" name="estado" maxlength="2">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea type="text" [(ngModel)]="clienteEndereco.observacoes" matInput placeholder="Observações" name="observacoes" maxlength="255" cols="120" rows="2"></textarea>
+    </mat-form-field>
+  </form>
+
+  <div class="actions">
+    <button type="button" mat-raised-button (click)="create()" color="primary">
+        Salvar
+    </button>
+
+    <button type="button" mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+
+  </div>
+
+</mat-card>
+
+

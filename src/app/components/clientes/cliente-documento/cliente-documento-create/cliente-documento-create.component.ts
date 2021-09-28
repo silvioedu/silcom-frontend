@@ -52,7 +52,8 @@ export class ClienteDocumentoCreateComponent implements OnInit {
     this.clienteDocumentoService.create(this.clienteId, this.clienteDocumento).subscribe(() => {
       this.messageService.showMessage('Documento de cliente criado com sucesso')
       const uri = `clientes/documentos/${this.clienteId}`
-      this.router.navigate([uri])    })
+      this.router.navigate([uri])
+    })
   }
 
   cancel(): void{

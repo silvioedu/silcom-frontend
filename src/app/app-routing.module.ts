@@ -55,6 +55,10 @@ const routes: Routes = [
   {
     path: 'clientes/documentos',
     loadChildren: () => import('./components/clientes/cliente-documento/cliente-documento.module').then(m => m.ClienteDocumentoModule)
+  },
+  {
+    path: 'clientes/enderecos',
+    loadChildren: () => import('./components/clientes/cliente-endereco/cliente-endereco.module').then(m => m.ClienteEnderecoModule)
   }
 ];
 
