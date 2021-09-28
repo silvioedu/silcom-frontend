@@ -1,0 +1,42 @@
+<mat-card class="card">
+
+  <h1>Excluir tipo de forma de pagamento</h1>
+
+  <form>
+
+    <mat-form-field>
+        <input class="field" matInput placeholder="Id" [value]="formaPagamentoTipo.id" name="id" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input class="field" matInput placeholder="Nome" [value]="formaPagamentoTipo.nome" name="nome" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Desconto" [value]="formaPagamentoTipo.desconto" name="desconto" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Agravo" [value]="formaPagamentoTipo.agravo" name="agravo" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Data criação" [value]="formaPagamentoTipo.dataCriacao * 1000 | date: 'yyyy-MM-dd HH:mm:ss'" name="dataCriacao" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Data Atualização" [value]="formaPagamentoTipo.dataAtualizacao * 1000 | date: 'yyyy-MM-dd HH:mm:ss'" name="dataAtualizacao" disabled>
+    </mat-form-field>
+
+    <div class="actions">
+      <button type="button" mat-raised-button (click)="delete()" color="warn">
+        Excluir
+      </button>
+
+      <button type="button" mat-raised-button (click)="cancel()">
+          Cancelar
+      </button>
+    </div>
+    </form>
+
+</mat-card>

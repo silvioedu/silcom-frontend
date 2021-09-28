@@ -9,6 +9,7 @@
 </mat-menu>
 
 <mat-menu #cadastros="matMenu">
+  <a routerLink="/cadastros/formas-pagamentos-tipos"><button mat-menu-item>Formas de pagamentos</button></a>
   <button mat-menu-item [matMenuTriggerFor]="cadastrosProdutos">Produtos</button>
   <a routerLink="/cadastros/ramos"><button mat-menu-item>Ramos</button></a>
   <a routerLink="/cadastros/contatos-tipos"><button mat-menu-item>Tipos de contatos</button></a>

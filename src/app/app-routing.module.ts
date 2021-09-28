@@ -45,6 +45,10 @@ const routes: Routes = [
     loadChildren: () => import('./components/cadastros/documento-tipo/documento-tipo.module').then(m => m.DocumentoTipoModule)
   },
   {
+    path: 'cadastros/formas-pagamentos-tipos',
+    loadChildren: () => import('./components/cadastros/forma-pagamento-tipo/forma-pagamento-tipo.module').then(m => m.FormaPagamentoTipoModule)
+  },
+  {
     path: 'clientes',
     loadChildren: () => import('./components/clientes/cliente/cliente.module').then(m => m.ClienteModule)
   },

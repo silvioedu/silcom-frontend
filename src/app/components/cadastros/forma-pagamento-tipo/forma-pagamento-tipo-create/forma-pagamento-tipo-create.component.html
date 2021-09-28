@@ -1,0 +1,31 @@
+<mat-card class="card">
+
+  <h1>Adicionar tipo de forma de pagamento</h1>
+
+  <form>
+    <mat-form-field>
+        <input type="text" [(ngModel)]="formaPagamentoTipo.nome" matInput placeholder="Nome" name="nome" maxlength="100">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="number" [(ngModel)]="formaPagamentoTipo.desconto" matInput placeholder="Desconto" name="desconto">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" [(ngModel)]="formaPagamentoTipo.agravo" matInput placeholder="Agravo" name="agravo">
+    </mat-form-field>
+  </form>
+
+  <div class="actions">
+    <button type="button" mat-raised-button (click)="create()" color="primary">
+        Salvar
+    </button>
+
+    <button type="button" mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+  </div>
+
+</mat-card>
+
+

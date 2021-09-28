@@ -15,13 +15,13 @@ export class DocumentoTipoReadComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'nome', 'dataCriacao', 'dataAtualizacao', 'acoes']
 
-  constructor(private ramoService: DocumentoTipoService,
+  constructor(private documentoTipoService: DocumentoTipoService,
     private router: Router) {
     // intentionally unscoped
   }
 
   ngOnInit(): void {
-    this.ramoService.read().subscribe(ramos => {
+    this.documentoTipoService.read().subscribe(ramos => {
       this.dataSource = new MatTableDataSource(ramos)
     })
   }
