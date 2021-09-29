@@ -71,6 +71,6 @@ export class ClienteContatoUpdateComponent implements OnInit {
   cancel(): void{
     const uri = `clientes/contatos/${this.clienteId}`
     this.router.navigate([uri])
-}
+  }
 
 }

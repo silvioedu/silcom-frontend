@@ -3,23 +3,11 @@ table, .mat-form-field, .menu {
 }
 
 table {
-  padding: 5px 10px;
+  padding: 5px;
 }
 
 tr.element-row:hover {
   background: whitesmoke;
-}
-
-.edit {
-  margin-right: 10px;
-}
-
-.edit em {
-  color: #E6BB43;
-}
-
-.delete em {
-  color: #F25A2E;
 }
 
 .mat-form-field {
@@ -31,7 +19,9 @@ mat-label {
   margin-left: 0px;
 }
 
-div {
+div.filter,
+div.menu,
+div.content {
   margin: 20px;
 }
 

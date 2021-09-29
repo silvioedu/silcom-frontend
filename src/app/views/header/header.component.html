@@ -3,26 +3,130 @@
   <span><a routerLink="/">Manager</a></span>
 </mat-toolbar>
 
-<mat-menu #menu="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="cadastros">Cadastros</button>
-  <a routerLink="/clientes"><button mat-menu-item>Clientes</button></a>
+<mat-menu #menu="matMenu" class="menu">
+
+  <button mat-menu-item [matMenuTriggerFor]="cadastros">
+    <div class="item-conteudo">
+      <em class="material-icons">app_registration</em>
+      <span>Cadastros</span>
+    </div>
+  </button>
+
+  <a routerLink="/clientes">
+    <button mat-menu-item>
+      <div class="item-conteudo">
+        <em class="material-icons">person</em>
+        <span>Clientes</span>
+      </div>
+    </button>
+  </a>
 </mat-menu>
 
 <mat-menu #cadastros="matMenu">
-  <a routerLink="/cadastros/formas-pagamentos-tipos"><button mat-menu-item>Formas de pagamentos</button></a>
-  <button mat-menu-item [matMenuTriggerFor]="cadastrosProdutos">Produtos</button>
-  <a routerLink="/cadastros/ramos"><button mat-menu-item>Ramos</button></a>
-  <a routerLink="/cadastros/contatos-tipos"><button mat-menu-item>Tipos de contatos</button></a>
-  <a routerLink="/cadastros/documentos-tipos"><button mat-menu-item>Tipos de documentos</button></a>
+
+    <a routerLink="/cadastros/formas-pagamentos-tipos">
+      <button mat-menu-item>
+        <div class="item-conteudo">
+          <em class="material-icons">payments</em>
+          <span>Formas de pagamento</span>
+        </div>
+      </button>
+    </a>
+
+    <button mat-menu-item [matMenuTriggerFor]="cadastrosProdutos">
+      <div class="item-conteudo">
+        <em class="material-icons">ice_skating</em>
+        <span>Produtos</span>
+      </div>
+    </button>
+
+  <a routerLink="/cadastros/ramos">
+    <button mat-menu-item>
+      <div class="item-conteudo">
+        <em class="material-icons">business_center</em>
+        <span>Ramos</span>
+      </div>
+
+    </button>
+  </a>
+
+  <a routerLink="/cadastros/contatos-tipos">
+    <button mat-menu-item>
+      <div class="item-conteudo">
+        <em class="material-icons">call</em>
+        <span>Tipos de contatos</span>
+      </div>
+    </button>
+  </a>
+
+  <a routerLink="/cadastros/documentos-tipos">
+    <button mat-menu-item>
+      <div class="item-conteudo">
+        <em class="material-icons">fingerprint</em>
+        <span>Tipos de documentos</span>
+      </div>
+    </button>
+  </a>
+
 </mat-menu>
 
 <mat-menu #cadastrosProdutos="matMenu">
-  <a routerLink="/cadastros/produtos"><button mat-menu-item>Produtos</button></a>
+
+  <a routerLink="/cadastros/produtos">
+    <button mat-menu-item>
+      <div class="item-conteudo">
+        <em class="material-icons">ice_skating</em>
+        <span>Produtos</span>
+      </div>
+    </button>
+  </a>
+
   <hr>
-  <a routerLink="/cadastros/produtos/complementos"><button mat-menu-item>Complementos</button></a>
-  <a routerLink="/cadastros/produtos/cores"><button mat-menu-item>Cores</button></a>
-  <a routerLink="/cadastros/produtos/detalhes"><button mat-menu-item>Detalhes</button></a>
-  <a routerLink="/cadastros/produtos/fabricantes"><button mat-menu-item>Fabricantes</button></a>
-  <a routerLink="/cadastros/produtos/tipos"><button mat-menu-item>Tipos</button></a>
+
+  <a routerLink="/cadastros/produtos/complementos">
+    <button mat-menu-item>
+      <div class="item-conteudo">
+        <em class="material-icons">note_add</em>
+        <span>Complementos</span>
+      </div>
+    </button>
+  </a>
+
+  <a routerLink="/cadastros/produtos/cores">
+    <button mat-menu-item>
+      <div class="item-conteudo">
+        <em class="material-icons">palette</em>
+        <span>Cores</span>
+      </div>
+    </button>
+  </a>
+
+  <a routerLink="/cadastros/produtos/detalhes">
+    <button mat-menu-item>
+      <div class="item-conteudo">
+        <em class="material-icons">settings_suggest</em>
+        <span>Detalhes</span>
+      </div>
+    </button>
+  </a>
+
+  <a routerLink="/cadastros/produtos/fabricantes">
+    <button mat-menu-item>
+      <div class="item-conteudo">
+        <em class="material-icons">precision_manufacturing</em>
+        <span>Fabricantes</span>
+      </div>
+    </button>
+  </a>
+
+  <a routerLink="/cadastros/produtos/tipos">
+    <button mat-menu-item>
+      <div class="item-conteudo">
+        <em class="material-icons">construction</em>
+        <span>Tipos</span>
+      </div>
+    </button>
+  </a>
+
 </mat-menu>
 

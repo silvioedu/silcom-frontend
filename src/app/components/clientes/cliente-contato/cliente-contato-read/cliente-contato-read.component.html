@@ -1,4 +1,7 @@
-<h1>Cadastro de contatos do cliente {{ clienteId }}</h1>
+<div class="title">
+  <em class="material-icons">person</em>
+  <h1>Cadastro de contatos do cliente {{ clienteId }}</h1>
+</div>
 
 <div class="mat-elevation-z1 filter">
   <mat-form-field appearance="standard">
@@ -13,7 +16,7 @@
   </button>
 </div>
 
-<div class="mat-elevation-z4">
+<div class="mat-elevation-z4 content">
 
   <table mat-table [dataSource]="dataSource" matSort>
 
@@ -81,12 +84,12 @@
 
   </table>
 
-  <div class="actions">
+</div>
 
-    <button type="button" mat-raised-button (click)="cancel()">
-      Voltar
-    </button>
+<div class="menu">
 
-  </div>
+  <button type="button" mat-raised-button (click)="cancel()" color="primary">
+    Voltar
+  </button>
 
 </div>
