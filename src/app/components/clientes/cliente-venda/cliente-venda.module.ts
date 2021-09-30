@@ -1,3 +1,4 @@
+import { ClienteVendaItemModule } from './../cliente-venda-item/cliente-venda-item.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -33,7 +34,8 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule,
     FormsModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    ClienteVendaItemModule
   ]
 })
 export class ClienteVendaModule { }

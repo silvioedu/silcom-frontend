@@ -28,3 +28,7 @@ form {
 .card {
   margin: 10px
 }
+
+.consulta-cep button {
+  margin-left: 20px;
+}

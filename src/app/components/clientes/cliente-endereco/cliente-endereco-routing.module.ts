@@ -7,19 +7,19 @@ import { ClienteEnderecoUpdateComponent } from './cliente-endereco-update/client
 
 const routes: Routes = [
   {
-    path: ':clienteId',
+    path: '',
     component: ClienteEnderecoReadComponent
   },
   {
-    path: ':clienteId/create',
+    path: 'create',
     component: ClienteEnderecoCreateComponent
   },
   {
-    path: ':clienteId/delete/:id',
+    path: ':enderecoId/delete',
     component: ClienteEnderecoDeleteComponent
   },
   {
-    path: ':clienteId/update/:id',
+    path: ':enderecoId/update',
     component: ClienteEnderecoUpdateComponent
   }
 ];

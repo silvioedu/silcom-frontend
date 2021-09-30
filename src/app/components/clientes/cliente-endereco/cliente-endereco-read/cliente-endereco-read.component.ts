@@ -37,7 +37,7 @@ export class ClienteEnderecoReadComponent implements OnInit {
   }
 
   add(): void {
-    const uri = `clientes/enderecos/${this.clienteId}/create`
+    const uri = `clientes/${this.clienteId}/enderecos/create`
     this.router.navigate([uri])
   }
 

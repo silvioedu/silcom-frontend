@@ -91,12 +91,12 @@
     <ng-container matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef id="lblacoes">Ações</th>
       <td mat-cell *matCellDef="let row">
-        <a routerLink="/clientes/enderecos/{{ clienteId }}/update/{{ row.id }}" class="edit">
+        <a routerLink="{{ row.id }}/update" class="edit">
           <em class="material-icons">
             edit
           </em>
         </a>
-        <a routerLink="/clientes/enderecos/{{ clienteId }}/delete/{{ row.id }}" class="delete">
+        <a routerLink="{{ row.id }}/delete" class="delete">
           <em class="material-icons">
             delete_outline
           </em>

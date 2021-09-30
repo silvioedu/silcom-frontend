@@ -38,7 +38,7 @@ export class ClienteDocumentoReadComponent implements OnInit {
   }
 
   add(): void {
-    const uri = `clientes/documentos/${this.clienteId}/create`
+    const uri = `clientes/${this.clienteId}/documentos/create`
     this.router.navigate([uri])
   }
 

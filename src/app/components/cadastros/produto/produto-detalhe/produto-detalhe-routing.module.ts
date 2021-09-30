@@ -15,11 +15,11 @@ const routes: Routes = [
     component: ProdutoDetalheCreateComponent
   },
   {
-    path: 'delete/:id',
+    path: ':id/delete',
     component: ProdutoDetalheDeleteComponent
   },
   {
-    path: 'update/:id',
+    path: ':id/update',
     component: ProdutoDetalheUpdateComponent
   }
 ];

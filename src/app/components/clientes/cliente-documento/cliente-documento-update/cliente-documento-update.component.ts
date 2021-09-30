@@ -21,7 +21,7 @@ export class ClienteDocumentoUpdateComponent implements OnInit {
   }
 
   clienteId = '';
-  id = '';
+  documentoId = '';
 
   documentoTipos: DocumentoTipo[] = [];
 
@@ -40,13 +40,13 @@ export class ClienteDocumentoUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.clienteId = this.route.snapshot.paramMap.get('clienteId') as string
-    this.id = this.route.snapshot.paramMap.get('id') as string
+    this.documentoId = this.route.snapshot.paramMap.get('documentoId') as string
 
     this.documentoTipoService.read().subscribe(documentoTipos => {
       this.documentoTipos = documentoTipos
     })
 
-    this.clienteDocumentoService.readById(this.clienteId, this.id).subscribe(clienteDocumento => {
+    this.clienteDocumentoService.readById(this.clienteId, this.documentoId).subscribe(clienteDocumento => {
       this.clienteDocumento = {
         tipoDocumentoId: this.documentoTipos.find(r => r.nome === clienteDocumento.tipoDocumentoNome)?.id || 0,
         documento: clienteDocumento.documento,
@@ -66,15 +66,15 @@ export class ClienteDocumentoUpdateComponent implements OnInit {
     this.clienteDocumento.tipoDocumentoId = this.selected.documentoTipo
     this.clienteDocumento.isento = this.selected.isento === 'false'? false : true
 
-    this.clienteDocumentoService.update(this.clienteId, this.id, this.clienteDocumento).subscribe(() => {
+    this.clienteDocumentoService.update(this.clienteId, this.documentoId, this.clienteDocumento).subscribe(() => {
       this.messageService.showMessage("Documento do cliente atualizado com sucesso.")
-      const uri = `clientes/documentos/${this.clienteId}`
+      const uri = `clientes/${this.clienteId}/documentos`
       this.router.navigate([uri])
     })
   }
 
   cancel(): void{
-    const uri = `clientes/documentos/${this.clienteId}`
+    const uri = `clientes/${this.clienteId}/documentos`
     this.router.navigate([uri])
   }
 

@@ -26,7 +26,7 @@ export class ClienteEnderecoDeleteComponent implements OnInit {
   };
 
   private clienteId = ''
-  private id = ''
+  private enderecoId = ''
 
   constructor(private clienteEnderecoService: ClienteEnderecoService,
     private router: Router,
@@ -37,23 +37,23 @@ export class ClienteEnderecoDeleteComponent implements OnInit {
 
   ngOnInit(): void {
     this.clienteId = this.route.snapshot.paramMap.get('clienteId') as string
-    this.id = this.route.snapshot.paramMap.get('id') as string
+    this.enderecoId = this.route.snapshot.paramMap.get('enderecoId') as string
 
-    this.clienteEnderecoService.readById(this.clienteId, this.id).subscribe(clienteEndereco => {
+    this.clienteEnderecoService.readById(this.clienteId, this.enderecoId).subscribe(clienteEndereco => {
       this.clienteEndereco = clienteEndereco
     })
   }
 
   delete(): void {
-    this.clienteEnderecoService.delete(this.clienteId, this.id).subscribe(() => {
+    this.clienteEnderecoService.delete(this.clienteId, this.enderecoId).subscribe(() => {
       this.messageService.showMessage("Endereço do cliente deletado com sucesso.")
-      const uri = `clientes/enderecos/${this.clienteId}`
+      const uri = `clientes/${this.clienteId}/enderecos`
       this.router.navigate([uri])
     })
   }
 
   cancel(): void {
-    const uri = `clientes/enderecos/${this.clienteId}`
+    const uri = `clientes/${this.clienteId}/enderecos`
     this.router.navigate([uri])
   }
 

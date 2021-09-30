@@ -15,11 +15,11 @@ const routes: Routes = [
     component: RamoCreateComponent
   },
   {
-    path: 'delete/:id',
+    path: ':id/delete',
     component: RamoDeleteComponent
   },
   {
-    path: 'update/:id',
+    path: ':id/update',
     component: RamoUpdateComponent
   }
 ];

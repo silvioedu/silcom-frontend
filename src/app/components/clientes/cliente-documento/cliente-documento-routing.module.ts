@@ -7,19 +7,19 @@ import { ClienteDocumentoUpdateComponent } from './cliente-documento-update/clie
 
 const routes: Routes = [
   {
-    path: ':clienteId',
+    path: '',
     component: ClienteDocumentoReadComponent
   },
   {
-    path: ':clienteId/create',
+    path: 'create',
     component: ClienteDocumentoCreateComponent
   },
   {
-    path: ':clienteId/delete/:id',
+    path: ':documentoId/delete',
     component: ClienteDocumentoDeleteComponent
   },
   {
-    path: ':clienteId/update/:id',
+    path: ':documentoId/update',
     component: ClienteDocumentoUpdateComponent
   }
 ];

@@ -15,11 +15,11 @@ const routes: Routes = [
     component: ContatoTipoCreateComponent
   },
   {
-    path: 'delete/:id',
+    path: ':id/delete',
     component: ContatoTipoDeleteComponent
   },
   {
-    path: 'update/:id',
+    path: ':id/update',
     component: ContatoTipoUpdateComponent
   }
 ];

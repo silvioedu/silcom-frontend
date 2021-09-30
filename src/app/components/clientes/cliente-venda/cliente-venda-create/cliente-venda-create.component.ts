@@ -50,13 +50,13 @@ export class ClienteVendaCreateComponent implements OnInit {
 
     this.clienteVendaService.create(this.clienteId, this.clienteVenda).subscribe(() => {
       this.messageService.showMessage('Venda do cliente criada com sucesso')
-      const uri = `clientes/vendas/${this.clienteId}`
+      const uri = `clientes/${this.clienteId}/vendas`
       this.router.navigate([uri])
     })
   }
 
   cancel(): void{
-    const uri = `clientes/vendas/${this.clienteId}`
+    const uri = `clientes/${this.clienteId}/vendas`
     this.router.navigate([uri])
   }
 

@@ -23,7 +23,7 @@ export class ClienteVendaUpdateComponent implements OnInit {
   }
 
   clienteId = '';
-  id = '';
+  vendaId = '';
 
   formaPagamentoTipos: FormaPagamentoTipo[] = [];
 
@@ -42,13 +42,13 @@ export class ClienteVendaUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.clienteId = this.route.snapshot.paramMap.get('clienteId') as string
-    this.id = this.route.snapshot.paramMap.get('id') as string
+    this.vendaId = this.route.snapshot.paramMap.get('vendaId') as string
 
     this.formaPagamentoTipoService.read().subscribe(formaPagamentoTipos => {
       this.formaPagamentoTipos = formaPagamentoTipos
     })
 
-    this.clienteVendaService.readById(this.clienteId, this.id).subscribe(clienteVenda => {
+    this.clienteVendaService.readById(this.clienteId, this.vendaId).subscribe(clienteVenda => {
       this.clienteVenda = {
         formaPagamentoTipoId: this.formaPagamentoTipos.find(r => r.nome === clienteVenda.formaPagamentoTipoNome)?.id || 0,
         desconto: clienteVenda.desconto,
@@ -70,15 +70,15 @@ export class ClienteVendaUpdateComponent implements OnInit {
     this.clienteVenda.formaPagamentoTipoId = this.selected.formaPagamentoTipo
     this.clienteVenda.valorTotal = parseFloat(this.selected.valorTotal.replace(",",".").replace(/R\$/gi,''))
 
-    this.clienteVendaService.update(this.clienteId, this.id, this.clienteVenda).subscribe(() => {
+    this.clienteVendaService.update(this.clienteId, this.vendaId, this.clienteVenda).subscribe(() => {
       this.messageService.showMessage("Venda do cliente atualizada com sucesso.")
-      const uri = `clientes/vendas/${this.clienteId}`
+      const uri = `clientes/${this.clienteId}/vendas`
       this.router.navigate([uri])
     })
   }
 
   cancel(): void{
-    const uri = `clientes/vendas/${this.clienteId}`
+    const uri = `clientes/${this.clienteId}/vendas`
     this.router.navigate([uri])
 }
 

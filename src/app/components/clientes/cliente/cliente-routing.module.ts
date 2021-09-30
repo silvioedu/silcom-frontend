@@ -15,11 +15,11 @@ const routes: Routes = [
     component: ClienteCreateComponent
   },
   {
-    path: 'delete/:id',
+    path: ':id/delete',
     component: ClienteDeleteComponent
   },
   {
-    path: 'update/:id',
+    path: ':id/update',
     component: ClienteUpdateComponent
   }
 

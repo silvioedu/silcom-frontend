@@ -24,15 +24,6 @@
 
 <mat-menu #cadastros="matMenu">
 
-    <a routerLink="/cadastros/formas-pagamentos-tipos">
-      <button mat-menu-item>
-        <div class="item-conteudo">
-          <em class="material-icons">payments</em>
-          <span>Formas de pagamento</span>
-        </div>
-      </button>
-    </a>
-
     <button mat-menu-item [matMenuTriggerFor]="cadastrosProdutos">
       <div class="item-conteudo">
         <em class="material-icons">ice_skating</em>
@@ -64,6 +55,15 @@
       <div class="item-conteudo">
         <em class="material-icons">fingerprint</em>
         <span>Tipos de documentos</span>
+      </div>
+    </button>
+  </a>
+
+  <a routerLink="/cadastros/formas-pagamentos-tipos">
+    <button mat-menu-item>
+      <div class="item-conteudo">
+        <em class="material-icons">payments</em>
+        <span>Tipos de formas de pagamento</span>
       </div>
     </button>
   </a>

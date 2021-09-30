@@ -15,11 +15,11 @@ const routes: Routes = [
     component: FormaPagamentoTipoCreateComponent
   },
   {
-    path: 'delete/:id',
+    path: ':id/delete',
     component: FormaPagamentoTipoDeleteComponent
   },
   {
-    path: 'update/:id',
+    path: ':id/update',
     component: FormaPagamentoTipoUpdateComponent
   }
 ];

@@ -24,7 +24,7 @@ export class ClienteVendaDeleteComponent implements OnInit {
   };
 
   private clienteId = ''
-  private id = ''
+  private vendaId = ''
 
   constructor(private clienteVendaService: ClienteVendaService,
     private router: Router,
@@ -35,23 +35,23 @@ export class ClienteVendaDeleteComponent implements OnInit {
 
   ngOnInit(): void {
     this.clienteId = this.route.snapshot.paramMap.get('clienteId') as string
-    this.id = this.route.snapshot.paramMap.get('id') as string
+    this.vendaId = this.route.snapshot.paramMap.get('vendaId') as string
 
-    this.clienteVendaService.readById(this.clienteId, this.id).subscribe(clienteVenda => {
+    this.clienteVendaService.readById(this.clienteId, this.vendaId).subscribe(clienteVenda => {
       this.clienteVenda = clienteVenda
     })
   }
 
   delete(): void {
-    this.clienteVendaService.delete(this.clienteId, this.id).subscribe(() => {
+    this.clienteVendaService.delete(this.clienteId, this.vendaId).subscribe(() => {
       this.messageService.showMessage("Venda do cliente deletada com sucesso.")
-      const uri = `clientes/vendas/${this.clienteId}`
+      const uri = `clientes/${this.clienteId}/vendas`
       this.router.navigate([uri])
     })
   }
 
   cancel(): void {
-    const uri = `clientes/vendas/${this.clienteId}`
+    const uri = `clientes/${this.clienteId}/vendas`
     this.router.navigate([uri])
   }
 

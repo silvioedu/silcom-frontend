@@ -7,19 +7,19 @@ import { ClienteContatoUpdateComponent } from './cliente-contato-update/cliente-
 
 const routes: Routes = [
   {
-    path: ':clienteId',
+    path: '',
     component: ClienteContatoReadComponent
   },
   {
-    path: ':clienteId/create',
+    path: 'create',
     component: ClienteContatoCreateComponent
   },
   {
-    path: ':clienteId/delete/:id',
+    path: ':contatoId/delete',
     component: ClienteContatoDeleteComponent
   },
   {
-    path: ':clienteId/update/:id',
+    path: ':contatoId/update',
     component: ClienteContatoUpdateComponent
   }
 ];

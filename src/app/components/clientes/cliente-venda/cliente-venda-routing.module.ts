@@ -7,19 +7,19 @@ import { ClienteVendaUpdateComponent } from './cliente-venda-update/cliente-vend
 
 const routes: Routes = [
   {
-    path: ':clienteId',
+    path: '',
     component: ClienteVendaReadComponent
   },
   {
-    path: ':clienteId/create',
+    path: 'create',
     component: ClienteVendaCreateComponent
   },
   {
-    path: ':clienteId/delete/:id',
+    path: ':vendaId/delete',
     component: ClienteVendaDeleteComponent
   },
   {
-    path: ':clienteId/update/:id',
+    path: ':vendaId/update',
     component: ClienteVendaUpdateComponent
   }
 ];

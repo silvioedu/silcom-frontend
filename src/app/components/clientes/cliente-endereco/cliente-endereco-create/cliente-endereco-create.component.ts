@@ -40,13 +40,13 @@ export class ClienteEnderecoCreateComponent implements OnInit {
   create(): void{
     this.clienteEnderecoService.create(this.clienteId, this.clienteEndereco).subscribe(() => {
       this.messageService.showMessage('Endereço de cliente criado com sucesso')
-      const uri = `clientes/enderecos/${this.clienteId}`
+      const uri = `clientes/${this.clienteId}/enderecos`
       this.router.navigate([uri])
     })
   }
 
   cancel(): void{
-    const uri = `clientes/enderecos/${this.clienteId}`
+    const uri = `clientes/${this.clienteId}/enderecos`
     this.router.navigate([uri])
   }
 

@@ -37,7 +37,7 @@ export class ClienteContatoReadComponent implements OnInit {
   }
 
   add(): void {
-    const uri = `clientes/contatos/${this.clienteId}/create`
+    const uri = `clientes/${this.clienteId}/contatos/create`
     this.router.navigate([uri])
   }
 

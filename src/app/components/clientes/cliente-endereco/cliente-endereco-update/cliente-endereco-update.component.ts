@@ -24,7 +24,7 @@ export class ClienteEnderecoUpdateComponent implements OnInit {
   }
 
   clienteId = '';
-  id = '';
+  enderecoId = '';
 
   constructor(private clienteEnderecoService: ClienteEnderecoService,
     private consultaCepService: ConsultaCepService,
@@ -36,9 +36,9 @@ export class ClienteEnderecoUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.clienteId = this.route.snapshot.paramMap.get('clienteId') as string
-    this.id = this.route.snapshot.paramMap.get('id') as string
+    this.enderecoId = this.route.snapshot.paramMap.get('enderecoId') as string
 
-    this.clienteEnderecoService.readById(this.clienteId, this.id).subscribe(clienteEndereco => {
+    this.clienteEnderecoService.readById(this.clienteId, this.enderecoId).subscribe(clienteEndereco => {
       this.clienteEndereco = {
         cep: clienteEndereco.cep,
         logradouro: clienteEndereco.logradouro,
@@ -55,15 +55,15 @@ export class ClienteEnderecoUpdateComponent implements OnInit {
   }
 
   update(): void{
-    this.clienteEnderecoService.update(this.clienteId, this.id, this.clienteEndereco).subscribe(() => {
+    this.clienteEnderecoService.update(this.clienteId, this.enderecoId, this.clienteEndereco).subscribe(() => {
       this.messageService.showMessage("Endereco do cliente atualizado com sucesso.")
-      const uri = `clientes/enderecos/${this.clienteId}`
+      const uri = `clientes/${this.clienteId}/enderecos`
       this.router.navigate([uri])
     })
   }
 
   cancel(): void{
-    const uri = `clientes/enderecos/${this.clienteId}`
+    const uri = `clientes/${this.clienteId}/enderecos`
     this.router.navigate([uri])
   }
 
