@@ -46,7 +46,7 @@ export class ClienteEnderecoDeleteComponent implements OnInit {
 
   delete(): void {
     this.clienteEnderecoService.delete(this.clienteId, this.enderecoId).subscribe(() => {
-      this.messageService.showMessage("Endereço do cliente deletado com sucesso.")
+      this.messageService.showMessage("Endereço do cliente removido com sucesso.")
       const uri = `clientes/${this.clienteId}/enderecos`
       this.router.navigate([uri])
     })

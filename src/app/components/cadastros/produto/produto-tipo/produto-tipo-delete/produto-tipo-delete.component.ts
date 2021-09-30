@@ -35,7 +35,7 @@ export class ProdutoTipoDeleteComponent implements OnInit {
 
   delete(): void {
     this.produtoTipoService.delete(this.produtoTipo.id + '').subscribe(() => {
-      this.messageService.showMessage("Tipo de produto deletado com sucesso.")
+      this.messageService.showMessage("Tipo de produto removido com sucesso.")
       this.router.navigate(['cadastros/produtos/tipos'])
     })
   }

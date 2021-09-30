@@ -35,7 +35,7 @@ export class ProdutoFabricanteDeleteComponent implements OnInit {
 
   delete(): void {
     this.produtoFabricanteService.delete(this.produtoFabricante.id + '').subscribe(() => {
-      this.messageService.showMessage("Fabricante de produto deletado com sucesso.")
+      this.messageService.showMessage("Fabricante de produto removido com sucesso.")
       this.router.navigate(['cadastros/produtos/fabricantes'])
     })
   }

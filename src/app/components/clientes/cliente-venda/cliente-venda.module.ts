@@ -1,3 +1,4 @@
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ClienteVendaItemModule } from './../cliente-venda-item/cliente-venda-item.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -35,7 +36,9 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     MatOptionModule,
     MatSelectModule,
-    ClienteVendaItemModule
+    ClienteVendaItemModule,
+    MatTooltipModule,
+    MatTooltipModule
   ]
 })
 export class ClienteVendaModule { }

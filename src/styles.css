@@ -36,3 +36,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .delete em {
   color: #f2582eb0;
 }
+
+.tooltip {
+  /* background-color: cadetblue; */
+  font-size: small;
+  font-style: italic;
+}

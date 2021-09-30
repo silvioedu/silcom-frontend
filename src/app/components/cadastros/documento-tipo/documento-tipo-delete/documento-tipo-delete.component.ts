@@ -34,7 +34,7 @@ export class DocumentoTipoDeleteComponent implements OnInit {
 
   delete(): void {
     this.documentoTipoService.delete(this.documentoTipo.id + '').subscribe(() => {
-      this.messageService.showMessage("Tipo de documento deletado com sucesso.")
+      this.messageService.showMessage("Tipo de documento removido com sucesso.")
       this.router.navigate(['cadastros/documentos-tipos'])
     })
   }

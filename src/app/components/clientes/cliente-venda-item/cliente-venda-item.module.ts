@@ -1,3 +1,4 @@
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -24,6 +25,7 @@ import { MatTableModule } from '@angular/material/table';
     MatCardModule,
     MatButtonModule,
     FormsModule,
+    MatTooltipModule
   ],
   exports: [
     ClienteVendaItemReadComponent

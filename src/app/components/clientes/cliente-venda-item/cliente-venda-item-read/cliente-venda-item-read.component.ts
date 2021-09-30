@@ -45,8 +45,4 @@ export class ClienteVendaItemReadComponent implements OnInit {
     this.router.navigate([uri])
   }
 
-  cancel(): void {
-    this.router.navigate(['clientes/'])
-  }
-
 }

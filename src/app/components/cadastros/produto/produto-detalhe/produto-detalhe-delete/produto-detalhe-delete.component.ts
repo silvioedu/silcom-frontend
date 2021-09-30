@@ -35,7 +35,7 @@ export class ProdutoDetalheDeleteComponent implements OnInit {
 
   delete(): void {
     this.produtoDetalheService.delete(this.produtoDetalhe.id + '').subscribe(() => {
-      this.messageService.showMessage("Detalhe de produto deletado com sucesso.")
+      this.messageService.showMessage("Detalhe de produto removido com sucesso.")
       this.router.navigate(['cadastros/produtos/detalhes'])
     })
   }

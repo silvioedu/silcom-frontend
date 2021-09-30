@@ -34,7 +34,7 @@ export class ContatoTipoDeleteComponent implements OnInit {
 
   delete(): void {
     this.contatoTipoService.delete(this.contatoTipo.id + '').subscribe(() => {
-      this.messageService.showMessage("Tipo de contato deletado com sucesso.")
+      this.messageService.showMessage("Tipo de contato removido com sucesso.")
       this.router.navigate(['cadastros/contatos-tipos'])
     })
   }

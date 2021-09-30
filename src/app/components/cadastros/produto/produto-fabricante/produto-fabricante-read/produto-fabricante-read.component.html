@@ -55,12 +55,12 @@
     <ng-container matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef id="lblacoes">Ações</th>
       <td mat-cell *matCellDef="let row">
-        <a routerLink="{{ row.id }}/update" class="edit">
+        <a routerLink="{{ row.id }}/update" class="edit" matTooltip="Atualizar" matTooltipClass="tooltip">
           <em class="material-icons">
             edit
           </em>
         </a>
-        <a routerLink="{{ row.id }}/delete" class="delete">
+        <a routerLink="{{ row.id }}/delete" class="delete" matTooltip="Remover" matTooltipClass="tooltip">
           <em class="material-icons">
             delete_outline
           </em>

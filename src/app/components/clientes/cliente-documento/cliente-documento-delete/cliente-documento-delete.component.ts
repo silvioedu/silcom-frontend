@@ -42,7 +42,7 @@ export class ClienteDocumentoDeleteComponent implements OnInit {
 
   delete(): void {
     this.clienteDocumentoService.delete(this.clienteId, this.documentoId).subscribe(() => {
-      this.messageService.showMessage("Documento do cliente deletado com sucesso.")
+      this.messageService.showMessage("Documento do cliente removido com sucesso.")
       const uri = `clientes/${this.clienteId}/documentos`
       this.router.navigate([uri])
     })

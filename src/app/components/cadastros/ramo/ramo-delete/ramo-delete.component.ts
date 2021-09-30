@@ -34,7 +34,7 @@ export class RamoDeleteComponent implements OnInit {
 
   delete(): void {
     this.ramoService.delete(this.ramo.id + '').subscribe(() => {
-      this.messageService.showMessage("Ramo deletado com sucesso.")
+      this.messageService.showMessage("Ramo removido com sucesso.")
       this.router.navigate(['cadastros/ramos'])
     })
   }

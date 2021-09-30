@@ -28,3 +28,13 @@ form {
 .card {
   margin: 10px
 }
+
+.venda-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.venda-item {
+  width: calc(100% / 4 - 50px);
+}

@@ -36,7 +36,7 @@ export class FormaPagamentoTipoDeleteComponent implements OnInit {
 
   delete(): void {
     this.formaPagamentoTipoService.delete(this.formaPagamentoTipo.id + '').subscribe(() => {
-      this.messageService.showMessage("Tipo de forma de pagamento deletado com sucesso.")
+      this.messageService.showMessage("Tipo de forma de pagamento removido com sucesso.")
       this.router.navigate(['cadastros/formas-pagamentos-tipos'])
     })
   }

@@ -35,7 +35,7 @@ export class ProdutoCorDeleteComponent implements OnInit {
 
   delete(): void {
     this.produtoCorService.delete(this.produtoCor.id + '').subscribe(() => {
-      this.messageService.showMessage("Cor de produto deletado com sucesso.")
+      this.messageService.showMessage("Cor de produto removido com sucesso.")
       this.router.navigate(['cadastros/produtos/cores'])
     })
   }
