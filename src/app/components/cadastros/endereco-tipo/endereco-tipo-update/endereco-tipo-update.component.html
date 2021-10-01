@@ -1,0 +1,32 @@
+<div class="title">
+  <em class="material-icons">fingerprint</em>
+  <h1>Alterar tipo de endereço</h1>
+</div>
+
+<mat-card class="card">
+
+  <form>
+
+      <mat-form-field>
+          <input matInput placeholder="Id" [(ngModel)]="enderecoTipo.id" name="id" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput placeholder="Nome" [(ngModel)]="enderecoTipo.nome" name="name" maxlength="20">
+      </mat-form-field>
+
+  </form>
+
+  <div class="actions">
+    <button type="button" mat-raised-button (click)="update()" color="primary">
+        Atualizar
+    </button>
+
+    <button type="button" mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+  </div>
+
+</mat-card>
+
+

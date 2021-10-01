@@ -1,0 +1,31 @@
+<div class="title">
+  <h1 mat-dialog-title>
+    <h1>Adicionar item</h1>
+  </h1>
+</div>
+
+<div mat-dialog-content>
+  <form>
+      <mat-form-field>
+        <mat-label>Produto</mat-label>
+        <mat-select [(ngModel)]="selected.produtoId" name="produtoId">
+          <mat-option *ngFor="let produto of produtos" [value]="produto.id">
+            {{ produto.codigo }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="number" [(ngModel)]="data.quantidade" matInput placeholder="Quantidade" name="quantidade" maxlength="60">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" [(ngModel)]="selected.valorUnitario" matInput placeholder="Valor unitário" name="valorUnitario" maxlength="60">
+      </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="create()" color="primary">Adicionar</button>
+  <button mat-button mat-dialog-close="clienteVendaItem">Cancelar</button>
+</div>

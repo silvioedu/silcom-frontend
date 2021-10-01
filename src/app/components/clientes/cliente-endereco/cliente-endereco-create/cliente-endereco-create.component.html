@@ -6,6 +6,14 @@
 <mat-card class="card">
 
   <form>
+    <mat-form-field>
+      <mat-label>Tipo</mat-label>
+      <mat-select [(ngModel)]="selected.tipoEndereco" name="tipoId">
+        <mat-option *ngFor="let tipoEndereco of tipoEnderecos" [value]="tipoEndereco.id">
+          {{ tipoEndereco.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <div class="consulta-cep">
       <mat-form-field>

@@ -25,6 +25,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/cadastros/documento-tipo/documento-tipo.module').then(m => m.DocumentoTipoModule)
       },
       {
+        path: 'enderecos-tipos',
+        loadChildren: () => import('./components/cadastros/endereco-tipo/endereco-tipo.module').then(m => m.EnderecoTipoModule)
+      },
+      {
         path: 'formas-pagamentos-tipos',
         loadChildren: () => import('./components/cadastros/forma-pagamento-tipo/forma-pagamento-tipo.module').then(m => m.FormaPagamentoTipoModule)
       },

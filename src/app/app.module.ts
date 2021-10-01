@@ -24,6 +24,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './views/footer/footer.component';
 import { HeaderComponent } from './views/header/header.component';
 import { HomeComponent } from './views/home/home.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 registerLocaleData(localePt);
 
@@ -52,7 +53,8 @@ registerLocaleData(localePt);
     MatMenuModule,
     MatOptionModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   exports: [],
   providers: [

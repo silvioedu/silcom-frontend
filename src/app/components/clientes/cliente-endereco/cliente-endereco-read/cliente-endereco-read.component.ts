@@ -13,7 +13,7 @@ export class ClienteEnderecoReadComponent implements OnInit {
 
   dataSource!: MatTableDataSource<ClienteEndereco>;
 
-  displayedColumns: string[] = ['id', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'estado', 'observacoes', 'dataCriacao', 'dataAtualizacao', 'acoes']
+  displayedColumns: string[] = ['id', 'tipoEnderecoNome', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'estado', 'observacoes', 'dataCriacao', 'dataAtualizacao', 'acoes']
 
   clienteId = ''
 

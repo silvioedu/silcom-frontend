@@ -37,13 +37,13 @@ export class ClienteVendaItemService {
   //   )
   // }
 
-  // create(clienteId: string, clienteVendaInput: ClienteVendaItemInput): Observable<ClienteVendaItem> {
-  //   const url = `${this.baseUrl + clienteId + this.finalUrl}`
-  //   return this.httpClient.post<ClienteVendaItem>(url, clienteVendaInput).pipe(
-  //     map(obj => obj),
-  //     catchError(e => this.errorHandlerService.errorHandler(e))
-  //   )
-  // }
+  create(clienteId: string, vendaId: string, clienteVendaInput: ClienteVendaItemInput): Observable<ClienteVendaItem> {
+    const url = `${this.baseUrl + clienteId + this.midUrl + vendaId + this.finalUrl}`
+    return this.httpClient.post<ClienteVendaItem>(url, clienteVendaInput).pipe(
+      map(obj => obj),
+      catchError(e => this.errorHandlerService.errorHandler(e))
+    )
+  }
 
   // delete(clienteId: string, id: string): Observable<ClienteVendaItem> {
   //   const url = `${this.baseUrl + clienteId + this.finalUrl + id}`

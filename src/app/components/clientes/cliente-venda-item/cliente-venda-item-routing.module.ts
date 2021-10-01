@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClienteVendaItemCreateComponent } from './cliente-venda-item-create/cliente-venda-item-create.component';
 import { ClienteVendaItemReadComponent } from './cliente-venda-item-read/cliente-venda-item-read.component';
 
 const routes: Routes = [
   {
     path: 'clienteId:clienteId&vendaId:vendaId',
     component: ClienteVendaItemReadComponent
-  }
+  },
   // {
   //   path: ':clienteId/create',
   //   component: ClienteVendaItemCreateComponent

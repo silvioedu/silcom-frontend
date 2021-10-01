@@ -1,5 +1,7 @@
+import { EnderecoTipoService } from './../../../cadastros/endereco-tipo/service/endereco-tipo.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { EnderecoTipo } from 'src/app/components/cadastros/endereco-tipo/model/endereco-tipo.model';
 import { ConsultaCepService } from 'src/app/components/shared/service/consulta-cep.service';
 import { MessageService } from 'src/app/components/shared/service/message.service';
 import { ClienteEnderecoInput } from '../model/cliente-endereco-input.model';
@@ -20,7 +22,14 @@ export class ClienteEnderecoUpdateComponent implements OnInit {
     bairro: '',
     cidade: '',
     estado: '',
-    observacoes: ''
+    observacoes: '',
+    tipoEnderecoId: 0
+  }
+
+  tipoEnderecos: EnderecoTipo[] = [];
+
+  selected = {
+    tipoEndereco: 0
   }
 
   clienteId = '';
@@ -28,6 +37,7 @@ export class ClienteEnderecoUpdateComponent implements OnInit {
 
   constructor(private clienteEnderecoService: ClienteEnderecoService,
     private consultaCepService: ConsultaCepService,
+    private tipoEnderecoService: EnderecoTipoService,
     private router: Router,
     private route: ActivatedRoute,
     private messageService: MessageService) {
@@ -38,8 +48,14 @@ export class ClienteEnderecoUpdateComponent implements OnInit {
     this.clienteId = this.route.snapshot.paramMap.get('clienteId') as string
     this.enderecoId = this.route.snapshot.paramMap.get('enderecoId') as string
 
+    this.tipoEnderecoService.read().subscribe(tipoEnderecos => {
+      this.tipoEnderecos = tipoEnderecos
+    })
+
     this.clienteEnderecoService.readById(this.clienteId, this.enderecoId).subscribe(clienteEndereco => {
+      console.log(`Retornado ${clienteEndereco.tipoEnderecoNome}`)
       this.clienteEndereco = {
+        tipoEnderecoId: this.tipoEnderecos.find(r => r.nome === clienteEndereco.tipoEnderecoNome)?.id || 0,
         cep: clienteEndereco.cep,
         logradouro: clienteEndereco.logradouro,
         numero: clienteEndereco.numero,
@@ -50,6 +66,7 @@ export class ClienteEnderecoUpdateComponent implements OnInit {
         observacoes: clienteEndereco.observacoes
       }
 
+      this.selected.tipoEndereco = this.clienteEndereco.tipoEnderecoId
     })
 
   }

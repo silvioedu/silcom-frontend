@@ -1,0 +1,37 @@
+<div class="title">
+  <em class="material-icons">fingerprint</em>
+  <h1>Remover tipo de endereço</h1>
+</div>
+
+<mat-card class="card">
+
+  <form>
+
+    <mat-form-field>
+        <input class="field" matInput placeholder="Id" [value]="enderecoTipo.id" name="id" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input class="field" matInput placeholder="Nome" [value]="enderecoTipo.nome" name="name" maxlength="20" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Data criação" [value]="enderecoTipo.dataCriacao * 1000 | date: 'yyyy-MM-dd HH:mm:ss'" name="dataCriacao" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Data Atualização" [value]="enderecoTipo.dataAtualizacao * 1000 | date: 'yyyy-MM-dd HH:mm:ss'" name="dataAtualizacao" disabled>
+    </mat-form-field>
+
+    <div class="actions">
+      <button type="button" mat-raised-button (click)="delete()" color="warn">
+        Remover
+      </button>
+
+      <button type="button" mat-raised-button (click)="cancel()">
+          Cancelar
+      </button>
+    </div>
+    </form>
+
+</mat-card>

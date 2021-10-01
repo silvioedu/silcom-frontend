@@ -1,5 +1,6 @@
 export interface ClienteEndereco {
   id: number;
+  tipoEnderecoNome: string;
   cep: string;
   logradouro: string;
   numero: string;

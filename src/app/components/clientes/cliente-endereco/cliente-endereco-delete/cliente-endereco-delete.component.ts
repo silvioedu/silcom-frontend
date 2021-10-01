@@ -22,7 +22,8 @@ export class ClienteEnderecoDeleteComponent implements OnInit {
     estado: '',
     observacoes: '',
     dataCriacao: 0,
-    dataAtualizacao: 0
+    dataAtualizacao: 0,
+    tipoEnderecoNome: ''
   };
 
   private clienteId = ''
