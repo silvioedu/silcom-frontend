@@ -1,0 +1,30 @@
+<div class="title">
+  <h1 mat-dialog-title>
+    <h1>Remover item</h1>
+  </h1>
+</div>
+
+<div mat-dialog-content>
+  <form>
+      <mat-form-field>
+        <input type="text" [(ngModel)]="clienteVendaItem.id" matInput placeholder="Id" name="id" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" [(ngModel)]="clienteVendaItem.produtoCodigo" matInput placeholder="Código" name="produtoCodigo" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="number" [(ngModel)]="clienteVendaItem.quantidade" matInput placeholder="Quantidade" name="quantidade" min="0" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" [(ngModel)]="selected.valorUnitario" matInput placeholder="Valor unitário" name="valorUnitario" disabled>
+      </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="delete()" color="primary">Remover</button>
+  <button mat-button mat-dialog-close="clienteVendaItem">Cancelar</button>
+</div>

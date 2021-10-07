@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormaPagamentoTipo } from 'src/app/components/cadastros/forma-pagamento-tipo/model/forma-pagamento-tipo.model';
 import { FormaPagamentoTipoService } from 'src/app/components/cadastros/forma-pagamento-tipo/service/forma-pagamento-tipo.service';
+import { CurrencyService } from 'src/app/components/shared/service/currency.service';
 import { MessageService } from 'src/app/components/shared/service/message.service';
+import { ClienteVendaItemService } from '../../cliente-venda-item/service/cliente-venda-item.service';
 import { ClienteVendaInput } from '../model/cliente-venda-input.model';
 import { ClienteVendaService } from '../service/cliente-venda.service';
 
@@ -36,18 +38,43 @@ export class ClienteVendaUpdateComponent implements OnInit {
     private clienteVendaService: ClienteVendaService,
     private router: Router,
     private route: ActivatedRoute,
-    private messageService: MessageService) {
+    private messageService: MessageService,
+    private currencyService: CurrencyService) {
       // intentionally unscoped
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.clienteId = this.route.snapshot.paramMap.get('clienteId') as string
     this.vendaId = this.route.snapshot.paramMap.get('vendaId') as string
 
-    this.formaPagamentoTipoService.read().subscribe(formaPagamentoTipos => {
-      this.formaPagamentoTipos = formaPagamentoTipos
-    })
+    await this.preLoad()
+    this.refresh()
 
+    ClienteVendaItemService.clienteVendaItemEvent.subscribe(_ => this.refresh())
+
+  }
+
+  async preLoad() {
+    this.formaPagamentoTipos = await this.formaPagamentoTipoService.read().toPromise();
+  }
+
+  update(): void{
+    this.clienteVenda.formaPagamentoTipoId = this.selected.formaPagamentoTipo
+    this.clienteVenda.valorTotal = this.currencyService.convertFromInputToNumber(this.selected.valorTotal)
+
+    this.clienteVendaService.update(this.clienteId, this.vendaId, this.clienteVenda).subscribe(() => {
+      this.messageService.showMessage("Venda do cliente atualizada com sucesso.")
+      const uri = `clientes/${this.clienteId}/vendas`
+      this.router.navigate([uri])
+    })
+  }
+
+  cancel(): void{
+    const uri = `clientes/${this.clienteId}/vendas`
+    this.router.navigate([uri])
+  }
+
+  refresh(){
     this.clienteVendaService.readById(this.clienteId, this.vendaId).subscribe(clienteVenda => {
       this.clienteVenda = {
         formaPagamentoTipoId: this.formaPagamentoTipos.find(r => r.nome === clienteVenda.formaPagamentoTipoNome)?.id || 0,
@@ -60,26 +87,9 @@ export class ClienteVendaUpdateComponent implements OnInit {
 
       this.selected = {
         formaPagamentoTipo: this.clienteVenda.formaPagamentoTipoId,
-        valorTotal: `R$ ${this.clienteVenda.valorTotal.toFixed(2).toString().replace(".",",")}`
+        valorTotal: this.currencyService.convertFromNumberToInput(this.clienteVenda.valorTotal)
       }
     })
 
   }
-
-  update(): void{
-    this.clienteVenda.formaPagamentoTipoId = this.selected.formaPagamentoTipo
-    this.clienteVenda.valorTotal = parseFloat(this.selected.valorTotal.replace(",",".").replace(/R\$/gi,''))
-
-    this.clienteVendaService.update(this.clienteId, this.vendaId, this.clienteVenda).subscribe(() => {
-      this.messageService.showMessage("Venda do cliente atualizada com sucesso.")
-      const uri = `clientes/${this.clienteId}/vendas`
-      this.router.navigate([uri])
-    })
-  }
-
-  cancel(): void{
-    const uri = `clientes/${this.clienteId}/vendas`
-    this.router.navigate([uri])
-}
-
 }

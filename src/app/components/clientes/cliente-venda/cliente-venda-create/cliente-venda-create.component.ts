@@ -48,9 +48,9 @@ export class ClienteVendaCreateComponent implements OnInit {
   create(): void{
     this.clienteVenda.formaPagamentoTipoId = this.selected.formaPagamentoTipo
 
-    this.clienteVendaService.create(this.clienteId, this.clienteVenda).subscribe(() => {
+    this.clienteVendaService.create(this.clienteId, this.clienteVenda).subscribe(venda => {
       this.messageService.showMessage('Venda do cliente criada com sucesso')
-      const uri = `clientes/${this.clienteId}/vendas`
+      const uri = `clientes/${this.clienteId}/vendas/${venda.id}/update`
       this.router.navigate([uri])
     })
   }

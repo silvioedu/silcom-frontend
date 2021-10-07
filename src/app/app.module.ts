@@ -1,3 +1,4 @@
+import { ServiceModule } from './components/shared/service/service.module';
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import localePt from '@angular/common/locales/pt';
@@ -25,6 +26,7 @@ import { FooterComponent } from './views/footer/footer.component';
 import { HeaderComponent } from './views/header/header.component';
 import { HomeComponent } from './views/home/home.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { PipeModule } from './components/shared/pipe/pipe.module';
 
 registerLocaleData(localePt);
 
@@ -33,7 +35,7 @@ registerLocaleData(localePt);
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ registerLocaleData(localePt);
     MatOptionModule,
     MatSelectModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    PipeModule
   ],
   exports: [],
   providers: [
@@ -64,6 +67,7 @@ registerLocaleData(localePt);
     }
   ],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
 

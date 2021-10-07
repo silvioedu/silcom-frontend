@@ -44,16 +44,13 @@ export class ClienteEnderecoUpdateComponent implements OnInit {
       // intentionally unscoped
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.clienteId = this.route.snapshot.paramMap.get('clienteId') as string
     this.enderecoId = this.route.snapshot.paramMap.get('enderecoId') as string
 
-    this.tipoEnderecoService.read().subscribe(tipoEnderecos => {
-      this.tipoEnderecos = tipoEnderecos
-    })
+    await this.preLoad()
 
     this.clienteEnderecoService.readById(this.clienteId, this.enderecoId).subscribe(clienteEndereco => {
-      console.log(`Retornado ${clienteEndereco.tipoEnderecoNome}`)
       this.clienteEndereco = {
         tipoEnderecoId: this.tipoEnderecos.find(r => r.nome === clienteEndereco.tipoEnderecoNome)?.id || 0,
         cep: clienteEndereco.cep,
@@ -69,6 +66,10 @@ export class ClienteEnderecoUpdateComponent implements OnInit {
       this.selected.tipoEndereco = this.clienteEndereco.tipoEnderecoId
     })
 
+  }
+
+  async preLoad() {
+    this.tipoEnderecos = await this.tipoEnderecoService.read().toPromise()
   }
 
   update(): void{

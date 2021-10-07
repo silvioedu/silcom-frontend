@@ -36,13 +36,11 @@ export class ClienteContatoUpdateComponent implements OnInit {
       // intentionally unscoped
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.clienteId = this.route.snapshot.paramMap.get('clienteId') as string
     this.contatoId = this.route.snapshot.paramMap.get('contatoId') as string
 
-    this.contatoTipoService.read().subscribe(contatoTipos => {
-      this.contatoTipos = contatoTipos
-    })
+    await this.preLoad()
 
     this.clienteContatoService.readById(this.clienteId, this.contatoId).subscribe(clienteContato => {
       this.clienteContato = {
@@ -54,8 +52,13 @@ export class ClienteContatoUpdateComponent implements OnInit {
       this.selected = {
         contatoTipo: this.clienteContato.tipoContatoId,
       }
+
     })
 
+  }
+
+  async preLoad() {
+    this.contatoTipos = await this.contatoTipoService.read().toPromise();
   }
 
   update(): void{

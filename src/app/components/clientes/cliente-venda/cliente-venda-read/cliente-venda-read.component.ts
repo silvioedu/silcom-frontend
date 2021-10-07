@@ -29,6 +29,7 @@ export class ClienteVendaReadComponent implements OnInit {
     this.clienteVendaService.read(this.clienteId).subscribe(clienteVendas => {
       this.dataSource = new MatTableDataSource(clienteVendas)
     })
+
   }
 
   applyFilter(event: Event) {
@@ -44,5 +45,4 @@ export class ClienteVendaReadComponent implements OnInit {
   cancel(): void {
     this.router.navigate(['clientes/'])
   }
-
 }

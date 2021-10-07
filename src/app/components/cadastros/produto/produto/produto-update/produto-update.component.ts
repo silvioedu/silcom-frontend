@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CurrencyService } from 'src/app/components/shared/service/currency.service';
 import { MessageService } from 'src/app/components/shared/service/message.service';
 import { CadastroProduto } from '../model/cadastro-produto.model';
 import { CadastrosProdutoService } from '../service/cadastros-produto.service';
@@ -49,12 +50,15 @@ export class ProdutoUpdateComponent implements OnInit {
     private cadastroService: CadastrosProdutoService,
     private router: Router,
     private route: ActivatedRoute,
-    private messageService: MessageService) {
+    private messageService: MessageService,
+    private currencyService: CurrencyService) {
       // intentionally unscoped
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id')  as string
+
+    await this.preLoad()
 
     this.produtoService.readIdById(id).subscribe(produtoId => {
       this.produtoId = produtoId
@@ -63,13 +67,13 @@ export class ProdutoUpdateComponent implements OnInit {
       this.selected.detalhe = this.produtoId.detalheId
       this.selected.fabricante = this.produtoId.fabricanteId
       this.selected.tipo = this.produtoId.tipoId
-      this.selected.preco = `R$ ${this.produtoId.preco.toFixed(2).toString().replace(".",",")}`
+      this.selected.preco = this.currencyService.convertFromNumberToInput(this.produtoId.preco)
     })
 
-    this.cadastroService.read().subscribe(cadastro => {
-      this.cadastro = cadastro
-    })
+  }
 
+  async preLoad() {
+    this.cadastro = await this.cadastroService.read().toPromise();
   }
 
   update(): void{
@@ -80,9 +84,8 @@ export class ProdutoUpdateComponent implements OnInit {
       fabricanteId: this.selected.fabricante,
       tipoId: this.selected.tipo,
       folder: this.selected.folder,
-      preco: parseFloat(this.selected.preco.replace(",",".").replace(/R\$/gi,''))
+      preco: this.currencyService.convertFromInputToNumber(this.selected.preco)
     }
-    console.log(produtoInput)
 
     this.produtoService.update(this.produtoId.id, produtoInput).subscribe(() => {
       this.messageService.showMessage("Produto atualizado com sucesso.")

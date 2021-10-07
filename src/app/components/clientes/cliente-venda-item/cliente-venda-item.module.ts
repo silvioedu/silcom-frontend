@@ -14,12 +14,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { ClienteVendaItemCreateComponent } from './cliente-venda-item-create/cliente-venda-item-create.component';
 import { MatSelectModule } from '@angular/material/select';
+import { ClienteVendaItemDeleteComponent } from './cliente-venda-item-delete/cliente-venda-item-delete.component';
+import { ClienteVendaItemUpdateComponent } from './cliente-venda-item-update/cliente-venda-item-update.component';
 
 
 @NgModule({
   declarations: [
     ClienteVendaItemReadComponent,
-    ClienteVendaItemCreateComponent
+    ClienteVendaItemCreateComponent,
+    ClienteVendaItemDeleteComponent,
+    ClienteVendaItemUpdateComponent
   ],
   imports: [
     CommonModule,

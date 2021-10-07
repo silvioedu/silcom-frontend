@@ -1,10 +1,12 @@
+import { ClienteVendaItemDeleteComponent } from './../cliente-venda-item-delete/cliente-venda-item-delete.component';
 import { ClienteVendaItemCreateComponent } from './../cliente-venda-item-create/cliente-venda-item-create.component';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ClienteVendaItem } from '../model/cliente-venda-item.model';
 import { ClienteVendaItemService } from '../service/cliente-venda-item.service';
 import { MatDialog } from '@angular/material/dialog';
+import { ClienteVendaItemUpdateComponent } from '../cliente-venda-item-update/cliente-venda-item-update.component';
 
 @Component({
   selector: 'app-cliente-venda-item-read',
@@ -22,18 +24,12 @@ export class ClienteVendaItemReadComponent implements OnInit {
 
   constructor(private clienteVendaItemService: ClienteVendaItemService,
     private route: ActivatedRoute,
-    private router: Router,
     public dialog: MatDialog) {
     // intentionally unscoped
   }
 
   ngOnInit(): void {
-    this.clienteId = this.route.snapshot.paramMap.get('clienteId')  as string
-    this.vendaId = this.route.snapshot.paramMap.get('vendaId')  as string
-
-    this.clienteVendaItemService.read(this.clienteId, this.vendaId).subscribe(clienteVendaItems => {
-      this.dataSource = new MatTableDataSource(clienteVendaItems)
-    })
+    this.refresh()
   }
 
   applyFilter(event: Event) {
@@ -44,12 +40,55 @@ export class ClienteVendaItemReadComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(ClienteVendaItemCreateComponent, {
       width: '250px',
-      data: {produtoId: 0, quantidade: 1, valorUnitario: 0}
+      data: {
+        clienteId: this.clienteId,
+        vendaId: this.vendaId
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
+      this.refresh()
+    });
+
+  }
+
+  refresh() {
+    this.clienteId = this.route.snapshot.paramMap.get('clienteId')  as string
+    this.vendaId = this.route.snapshot.paramMap.get('vendaId')  as string
+
+    this.clienteVendaItemService.read(this.clienteId, this.vendaId).subscribe(clienteVendaItems => {
+      this.dataSource = new MatTableDataSource(clienteVendaItems)
+    })
+
+  }
+
+  delete(id: string) {
+    const dialogRef = this.dialog.open(ClienteVendaItemDeleteComponent, {
+      width: '250px',
+      data: {
+        clienteId: this.clienteId,
+        vendaId: this.vendaId,
+        itemId: id
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.refresh()
+    });
+  }
+
+  update(id: string) {
+    const dialogRef = this.dialog.open(ClienteVendaItemUpdateComponent, {
+      width: '250px',
+      data: {
+        clienteId: this.clienteId,
+        vendaId: this.vendaId,
+        itemId: id
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.refresh()
     });
   }
 

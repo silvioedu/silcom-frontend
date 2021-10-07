@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BASE_URL: 'http://localhost:8080/'
+  // BASE_URL: 'http://localhost:8080/'
+  BASE_URL: 'https://silcom-backend-api.herokuapp.com/'
 };
 
 /*

@@ -20,7 +20,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input class="field" matInput placeholder="Documento" [value]="clienteDocumento.isento?'Sim':'Não'" name="isento" disabled>
+      <input class="field" matInput placeholder="Documento" [value]="clienteDocumento.isento | booleanToString" name="isento" disabled>
     </mat-form-field>
 
     <mat-form-field>

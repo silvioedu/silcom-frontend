@@ -1,3 +1,4 @@
+import { CurrencyService } from './../../../../shared/service/currency.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'src/app/components/shared/service/message.service';
@@ -45,7 +46,8 @@ export class ProdutoCreateComponent implements OnInit {
   constructor(private produtoService: ProdutoService,
     private cadastroService: CadastrosProdutoService,
     private router: Router,
-    private messageService: MessageService) {
+    private messageService: MessageService,
+    private currencyService: CurrencyService) {
       // intentionally unscoped
   }
 
@@ -62,7 +64,7 @@ export class ProdutoCreateComponent implements OnInit {
     this.produto.fabricanteId = this.selected.fabricante
     this.produto.tipoId = this.selected.tipo
     this.produto.folder = this.selected.folder
-    this.produto.preco = parseFloat(this.selected.preco.replace(",",".").replace(/R\$/gi,''))
+    this.produto.preco = this.currencyService.convertFromInputToNumber(this.selected.preco)
     this.produtoService.create(this.produto).subscribe(() => {
       this.messageService.showMessage('Produto criado com sucesso')
       this.router.navigate(['cadastros/produtos'])

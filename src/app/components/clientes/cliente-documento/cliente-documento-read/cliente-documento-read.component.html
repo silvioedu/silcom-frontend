@@ -41,7 +41,7 @@
     <!-- Isento Column -->
     <ng-container matColumnDef="isento">
       <th mat-header-cell *matHeaderCellDef id="lblisento">Isento</th>
-      <td mat-cell *matCellDef="let row">{{row.isento?'Sim':'Não'}}</td>
+      <td mat-cell *matCellDef="let row">{{row.isento | booleanToString}}</td>
     </ng-container>
 
 

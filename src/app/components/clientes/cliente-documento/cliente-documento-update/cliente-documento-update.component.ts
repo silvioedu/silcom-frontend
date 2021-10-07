@@ -38,13 +38,11 @@ export class ClienteDocumentoUpdateComponent implements OnInit {
       // intentionally unscoped
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.clienteId = this.route.snapshot.paramMap.get('clienteId') as string
     this.documentoId = this.route.snapshot.paramMap.get('documentoId') as string
 
-    this.documentoTipoService.read().subscribe(documentoTipos => {
-      this.documentoTipos = documentoTipos
-    })
+    await this.preLoad()
 
     this.clienteDocumentoService.readById(this.clienteId, this.documentoId).subscribe(clienteDocumento => {
       this.clienteDocumento = {
@@ -58,8 +56,13 @@ export class ClienteDocumentoUpdateComponent implements OnInit {
         documentoTipo: this.clienteDocumento.tipoDocumentoId,
         isento: this.clienteDocumento.isento + ''
       }
+
     })
 
+  }
+
+  async preLoad() {
+    this.documentoTipos = await this.documentoTipoService.read().toPromise();
   }
 
   update(): void{
