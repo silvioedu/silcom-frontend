@@ -1,0 +1,41 @@
+<div class="title">
+  <em class="material-icons">event</em>
+  <h1>Remover tipo de lembrete</h1>
+</div>
+
+<mat-card class="card">
+
+  <form>
+
+    <mat-form-field>
+        <input class="field" matInput placeholder="Id" [value]="lembreteTipo.id" name="id" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input class="field" matInput placeholder="Nome" [value]="lembreteTipo.nome" name="nome" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Desconto" [value]="lembreteTipo.intervalo" name="intervalo" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Data criação" [value]="lembreteTipo.dataCriacao | numberToDate" name="dataCriacao" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="field" matInput placeholder="Data Atualização" [value]="lembreteTipo.dataAtualizacao | numberToDate" name="dataAtualizacao" disabled>
+    </mat-form-field>
+
+    <div class="actions">
+      <button type="button" mat-raised-button (click)="delete()" color="warn">
+        Remover
+      </button>
+
+      <button type="button" mat-raised-button (click)="cancel()">
+          Cancelar
+      </button>
+    </div>
+    </form>
+
+</mat-card>

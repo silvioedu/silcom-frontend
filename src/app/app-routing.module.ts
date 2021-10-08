@@ -33,6 +33,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/cadastros/forma-pagamento-tipo/forma-pagamento-tipo.module').then(m => m.FormaPagamentoTipoModule)
       },
       {
+        path: 'lembretes-tipos',
+        loadChildren: () => import('./components/cadastros/lembrete-tipo/lembrete-tipo.module').then(m => m.LembreteTipoModule)
+      },
+      {
         path: 'produtos',
         children: [
           {
