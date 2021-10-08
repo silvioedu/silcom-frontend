@@ -12,7 +12,7 @@ import { FormaPagamentoTipo } from '../model/forma-pagamento-tipo.model';
 })
 export class FormaPagamentoTipoService {
 
-  baseUrl = `${environment.BASE_URL}cadastros/formas-pagamentos`
+  baseUrl = `${environment.BASE_URL}cadastros/formas-pagamentos-tipos`
 
   constructor(private httpClient: HttpClient,
     private errorHandlerService: ErrorHandlerService) {
