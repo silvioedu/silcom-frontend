@@ -16,6 +16,7 @@ import { ClienteVendaItemCreateComponent } from './cliente-venda-item-create/cli
 import { MatSelectModule } from '@angular/material/select';
 import { ClienteVendaItemDeleteComponent } from './cliente-venda-item-delete/cliente-venda-item-delete.component';
 import { ClienteVendaItemUpdateComponent } from './cliente-venda-item-update/cliente-venda-item-update.component';
+import { PipeModule } from '../../shared/pipe/pipe.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ClienteVendaItemUpdateComponent } from './cliente-venda-item-update/cli
     MatTooltipModule,
     MatOptionModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    PipeModule
   ],
   exports: [
     ClienteVendaItemReadComponent

@@ -7,9 +7,15 @@
 
   <form>
 
-      <mat-form-field>
-          <input matInput placeholder="Id" [(ngModel)]="vendaId" name="id" disabled>
-      </mat-form-field>
+      <div class="venda-title">
+        <mat-form-field class="venda-item-disabled">
+            <input matInput placeholder="Id" [(ngModel)]="vendaId" name="id" disabled>
+        </mat-form-field>
+
+        <mat-form-field class="venda-item-disabled">
+          <input matInput placeholder="Data de criação" [ngModel]="dataCriacao | numberToDate " name="dataCriacao" disabled>
+        </mat-form-field>
+      </div>
 
       <div class="venda-title">
         <mat-form-field class="venda-item">

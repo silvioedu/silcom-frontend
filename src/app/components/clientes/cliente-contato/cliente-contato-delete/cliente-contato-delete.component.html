@@ -24,11 +24,11 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input class="field" matInput placeholder="Data criação" [value]="clienteContato.dataCriacao * 1000 | date: 'yyyy-MM-dd HH:mm:ss'" name="dataCriacao" disabled>
+      <input class="field" matInput placeholder="Data criação" [value]="clienteContato.dataCriacao | numberToDate" name="dataCriacao" disabled>
     </mat-form-field>
 
     <mat-form-field>
-      <input class="field" matInput placeholder="Data Atualização" [value]="clienteContato.dataAtualizacao * 1000 | date: 'yyyy-MM-dd HH:mm:ss'" name="dataAtualizacao" disabled>
+      <input class="field" matInput placeholder="Data Atualização" [value]="clienteContato.dataAtualizacao | numberToDate" name="dataAtualizacao" disabled>
     </mat-form-field>
 
     <div class="actions">

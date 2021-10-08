@@ -38,3 +38,7 @@ form {
 .venda-item {
   width: calc(100% / 4 - 50px);
 }
+
+.venda-item-disabled {
+  width: calc(100% / 2 - 50px);
+}

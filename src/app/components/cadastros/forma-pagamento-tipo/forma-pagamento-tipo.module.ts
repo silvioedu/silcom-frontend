@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { PipeModule } from '../../shared/pipe/pipe.module';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { MatTableModule } from '@angular/material/table';
     MatCardModule,
     MatButtonModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    PipeModule
   ]
 })
 export class FormaPagamentoTipoModule { }

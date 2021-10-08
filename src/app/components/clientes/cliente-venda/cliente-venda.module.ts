@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { PipeModule } from '../../shared/pipe/pipe.module';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { MatTableModule } from '@angular/material/table';
     MatSelectModule,
     ClienteVendaItemModule,
     MatTooltipModule,
-    MatTooltipModule
+    MatTooltipModule,
+    PipeModule
   ]
 })
 export class ClienteVendaModule { }

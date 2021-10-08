@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { PipeModule } from '../../shared/pipe/pipe.module';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatCardModule,
     MatButtonModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    PipeModule
   ]
 })
 export class EnderecoTipoModule { }

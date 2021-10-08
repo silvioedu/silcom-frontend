@@ -15,6 +15,7 @@ import { ClienteDeleteComponent } from './cliente-delete/cliente-delete.componen
 import { ClienteReadComponent } from './cliente-read/cliente-read.component';
 import { ClienteRoutingModule } from './cliente-routing.module';
 import { ClienteUpdateComponent } from './cliente-update/cliente-update.component';
+import { PipeModule } from '../../shared/pipe/pipe.module';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ClienteUpdateComponent } from './cliente-update/cliente-update.componen
     FormsModule,
     MatOptionModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    PipeModule
   ]
 })
 export class ClienteModule { }

@@ -13,6 +13,7 @@ import { RamoCreateComponent } from './ramo-create/ramo-create.component';
 import { RamoReadComponent } from './ramo-read/ramo-read.component';
 import { RamoDeleteComponent } from './ramo-delete/ramo-delete.component';
 import { RamoUpdateComponent } from './ramo-update/ramo-update.component';
+import { PipeModule } from '../../shared/pipe/pipe.module';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { RamoUpdateComponent } from './ramo-update/ramo-update.component';
     MatCardModule,
     MatButtonModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    PipeModule
   ]
 })
 export class RamoModule { }

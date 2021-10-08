@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { PipeModule } from 'src/app/components/shared/pipe/pipe.module';
 
 import { ProdutoCreateComponent } from './produto-create/produto-create.component';
 import { ProdutoDeleteComponent } from './produto-delete/produto-delete.component';
@@ -33,7 +34,8 @@ import { ProdutoUpdateComponent } from './produto-update/produto-update.componen
     MatButtonModule,
     FormsModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    PipeModule
   ]
 })
 export class ProdutoModule { }
