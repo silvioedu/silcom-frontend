@@ -20,7 +20,8 @@ export class ClienteVendaDeleteComponent implements OnInit {
     emitirNota: false,
     observacoes: '',
     dataCriacao: 0,
-    dataAtualizacao: 0
+    dataAtualizacao: 0,
+    status: ''
   };
 
   private clienteId = ''

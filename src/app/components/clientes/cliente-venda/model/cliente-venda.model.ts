@@ -1,5 +1,6 @@
 export interface ClienteVenda {
   id: number;
+  status: string;
   formaPagamentoTipoNome: string;
   desconto: number;
   agravo: number;

@@ -27,6 +27,7 @@ export class ClienteVendaUpdateComponent implements OnInit {
   clienteId = '';
   vendaId = '';
   dataCriacao:number = 0;
+  status:string = '';
 
   formaPagamentoTipos: FormaPagamentoTipo[] = [];
 
@@ -87,6 +88,7 @@ export class ClienteVendaUpdateComponent implements OnInit {
       }
 
       this.dataCriacao = clienteVenda.dataCriacao
+      this.status = clienteVenda.status
 
       this.selected = {
         formaPagamentoTipo: this.clienteVenda.formaPagamentoTipoId,
