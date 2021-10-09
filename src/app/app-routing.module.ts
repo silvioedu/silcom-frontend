@@ -91,6 +91,10 @@ const routes: Routes = [
             loadChildren: () => import('./components/clientes/cliente-endereco/cliente-endereco.module').then(m => m.ClienteEnderecoModule)
           },
           {
+            path: 'lembretes',
+            loadChildren: () => import('./components/clientes/cliente-lembrete/cliente-lembrete.module').then(m => m.ClienteLembreteModule)
+          },
+          {
             path: 'vendas',
             children: [
               {

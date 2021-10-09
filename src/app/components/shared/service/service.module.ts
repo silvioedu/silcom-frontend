@@ -1,3 +1,4 @@
+import { DatepickerService } from './datepicker.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConsultaCepService } from './consulta-cep.service';
@@ -17,7 +18,8 @@ import { CurrencyService } from './currency.service';
     ConsultaCepService,
     ErrorHandlerService,
     MessageService,
-    CurrencyService
+    CurrencyService,
+    DatepickerService
   ]
 })
 export class ServiceModule { }

@@ -18,7 +18,6 @@ export class ConsultaCepService {
     private errorHandlerService: ErrorHandlerService,
     private messageService: MessageService) {
       // intentionally unscoped
-
   }
 
   find(cep: string): Observable<Cep>{

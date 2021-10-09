@@ -5,7 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class CurrencyService {
 
-  constructor() { }
+  constructor() {
+    // intentionally unscoped
+  }
 
   convertFromInputToNumber(value: string): number {
     return parseFloat(value.replace(",",".").replace(/R\$/gi,''))

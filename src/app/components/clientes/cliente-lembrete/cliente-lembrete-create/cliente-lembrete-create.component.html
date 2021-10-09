@@ -1,0 +1,47 @@
+<div class="title">
+  <em class="material-icons">notifications</em>
+  <h1>Adicionar lembrete do cliente</h1>
+</div>
+
+<mat-card class="card">
+
+  <form>
+    <mat-form-field>
+      <mat-label>Tipo</mat-label>
+      <mat-select [(ngModel)]="selected.lembreteTipo" name="tipoId" (selectionChange)="calculateDataEvento()">
+        <mat-option *ngFor="let lembreteTipo of lembreteTipos" [value]="lembreteTipo.id">
+          {{ lembreteTipo.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <mat-form-field>
+        <!-- <input type="text" [(ngModel)]="clienteLembrete.dataEvento" matInput placeholder="Data Evento" name="dataEvento"> -->
+        <!-- <mat-label>Data do evento</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="selected.dataEvento" name="dataEvento">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> -->
+
+    <mat-form-field>
+      <input type="text" [(ngModel)]="clienteLembrete.dataEvento" matInput placeholder="Data Evento" name="dataEvento" placeholder="Data do evento (dd/mm/aaaa)" maxlength="10" (change)="formatData()">
+   </mat-form-field>
+
+    <mat-form-field>
+      <textarea type="text" [(ngModel)]="clienteLembrete.observacoes" matInput placeholder="Observações" name="observacoes" maxlength="255" cols="120" rows="2"></textarea>
+    </mat-form-field>
+  </form>
+
+  <div class="actions">
+    <button type="button" mat-raised-button (click)="create()" color="primary">
+        Salvar
+    </button>
+
+    <button type="button" mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+  </div>
+
+</mat-card>
+
+

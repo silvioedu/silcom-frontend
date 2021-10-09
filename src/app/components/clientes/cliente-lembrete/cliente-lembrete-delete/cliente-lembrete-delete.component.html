@@ -1,0 +1,48 @@
+<div class="title">
+  <em class="material-icons">fingerprint</em>
+  <h1>Remover lembrete do cliente</h1>
+</div>
+
+<mat-card class="card">
+
+  <form>
+
+      <mat-form-field>
+          <input matInput placeholder="Id" [(ngModel)]="lembreteId" name="id" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" [(ngModel)]="clienteLembrete.tipoLembreteNome" matInput placeholder="Nome" name="tipoLembreteNome" placeholder="Nome" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" [(ngModel)]="clienteLembrete.dataEvento" matInput placeholder="Data Evento" name="dataEvento" placeholder="Data do evento (dd/mm/aaaa)" maxlength="10" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea type="text" [(ngModel)]="clienteLembrete.observacoes" matInput placeholder="Observações" name="observacoes" maxlength="255" cols="120" rows="2" disabled></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input class="field" matInput placeholder="Data criação" [value]="clienteLembrete.dataCriacao | numberToDate" name="dataCriacao" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input class="field" matInput placeholder="Data Atualização" [value]="clienteLembrete.dataAtualizacao | numberToDate" name="dataAtualizacao" disabled>
+      </mat-form-field>
+
+  </form>
+
+  <div class="actions">
+    <button type="button" mat-raised-button (click)="delete()" color="warn">
+        Remover
+    </button>
+
+    <button type="button" mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+  </div>
+
+</mat-card>
+
+
