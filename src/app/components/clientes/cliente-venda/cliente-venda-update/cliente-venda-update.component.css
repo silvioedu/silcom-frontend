@@ -52,12 +52,18 @@ form {
 
 .check {
   color: rgba(0, 128, 0, 0.76);
+  font-weight: bolder;
+  letter-spacing: 5px;
 }
 
 .deliver {
-  color: rgba(51, 51, 207, 0.781)
+  color: rgba(51, 51, 207, 0.781);
+  font-weight: bolder;
+  letter-spacing: 5px;
 }
 
 .cancel {
   color: #f2582eb0;
+  font-weight: bolder;
+  letter-spacing: 5px;
 }

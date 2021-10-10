@@ -11,7 +11,8 @@
 </div>
 
 <div class="menu">
-  <button type="button" mat-raised-button (click)="openDialog()" color="primary">
+  <button type="button" mat-raised-button (click)="openDialog()" color="primary"
+  [disabled]="disableAction()">
     Adicionar
   </button>
 </div>
@@ -61,13 +62,19 @@
     <ng-container matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef id="lblacoes">Ações</th>
       <td mat-cell *matCellDef="let row">
-        <a (click)="update(row.id)" class="edit" matTooltip="Atualizar" matTooltipClass="tooltip">
-          <em class="material-icons">
+        <a (click)="update(row.id)" class="edit" matTooltip="Atualizar" matTooltipClass="tooltip" >
+          <em class="material-icons"
+            [ngClass]="{
+              'disabled': disableAction
+            }">
             edit
           </em>
         </a>
         <a (click)="delete(row.id)" class="delete" matTooltip="Remover" matTooltipClass="tooltip">
-          <em class="material-icons">
+          <em class="material-icons"
+            [ngClass]="{
+              'disabled': disableAction
+            }">
             delete_outline
           </em>
         </a>

@@ -1,6 +1,7 @@
+import { VendaStatus } from './../../cliente-venda/model/venda-status.enum';
 import { ClienteVendaItemDeleteComponent } from './../cliente-venda-item-delete/cliente-venda-item-delete.component';
 import { ClienteVendaItemCreateComponent } from './../cliente-venda-item-create/cliente-venda-item-create.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { ClienteVendaItem } from '../model/cliente-venda-item.model';
@@ -14,6 +15,8 @@ import { ClienteVendaItemUpdateComponent } from '../cliente-venda-item-update/cl
   styleUrls: ['./cliente-venda-item-read.component.css']
 })
 export class ClienteVendaItemReadComponent implements OnInit {
+
+  @Input() statusVenda: string = ''
 
   dataSource!: MatTableDataSource<ClienteVendaItem>;
 
@@ -63,6 +66,10 @@ export class ClienteVendaItemReadComponent implements OnInit {
   }
 
   delete(id: string) {
+    if (this.disableAction()) {
+      return
+    }
+
     const dialogRef = this.dialog.open(ClienteVendaItemDeleteComponent, {
       width: '250px',
       data: {
@@ -78,6 +85,10 @@ export class ClienteVendaItemReadComponent implements OnInit {
   }
 
   update(id: string) {
+    if (this.disableAction()) {
+      return
+    }
+
     const dialogRef = this.dialog.open(ClienteVendaItemUpdateComponent, {
       width: '250px',
       data: {
@@ -90,6 +101,10 @@ export class ClienteVendaItemReadComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.refresh()
     });
+  }
+
+  disableAction() {
+    return this.statusVenda != VendaStatus.CRIADO
   }
 
 }

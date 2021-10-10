@@ -117,4 +117,8 @@ export class ClienteVendaUpdateComponent implements OnInit {
       this.refresh()
     })
   }
+
+  disableAction() {
+    return this.status != VendaStatus.CRIADO
+  }
 }
