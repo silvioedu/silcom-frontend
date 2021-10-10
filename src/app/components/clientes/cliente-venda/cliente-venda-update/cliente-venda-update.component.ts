@@ -6,6 +6,7 @@ import { CurrencyService } from 'src/app/components/shared/service/currency.serv
 import { MessageService } from 'src/app/components/shared/service/message.service';
 import { ClienteVendaItemService } from '../../cliente-venda-item/service/cliente-venda-item.service';
 import { ClienteVendaInput } from '../model/cliente-venda-input.model';
+import { VendaStatus } from '../model/venda-status.enum';
 import { ClienteVendaService } from '../service/cliente-venda.service';
 
 @Component({
@@ -96,5 +97,24 @@ export class ClienteVendaUpdateComponent implements OnInit {
       }
     })
 
+  }
+
+  updateStatusFechado() {
+    this.updateStatus(VendaStatus.FECHADO)
+  }
+
+  updateStatusEntregue() {
+    this.updateStatus(VendaStatus.ENTREGUE)
+  }
+
+  updateStatusCancelado() {
+    this.updateStatus(VendaStatus.CANCELADO)
+  }
+
+  private updateStatus(status: VendaStatus) {
+    this.clienteVendaService.updateStatus(this.clienteId, this.vendaId, status).subscribe(() => {
+      this.messageService.showMessage("Status atualizado com sucesso.")
+      this.refresh()
+    })
   }
 }

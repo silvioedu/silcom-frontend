@@ -1,0 +1,6 @@
+export enum VendaStatus {
+  CRIADO="CRIADO",
+  FECHADO="FECHADO",
+  ENTREGUE="ENTREGUE",
+  CANCELADO="CANCELADO"
+}

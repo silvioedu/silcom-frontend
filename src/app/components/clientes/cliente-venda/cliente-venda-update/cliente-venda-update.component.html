@@ -20,6 +20,26 @@
           <input matInput placeholder="Status" [ngModel]="status" name="status" disabled>
         </mat-form-field>
 
+        <div class="status">
+          <a (click)="updateStatusFechado()" class="check" matTooltip="Atualizar para Fechado" matTooltipClass="tooltip"
+            *ngIf="status != 'FECHADO'">
+            <em class="material-icons">
+              check
+            </em>
+          </a>
+          <a (click)="updateStatusEntregue()" class="deliver" matTooltip="Atualizar para Entregue" matTooltipClass="tooltip"
+            *ngIf="status != 'ENTREGUE'">
+            <em class="material-icons">
+              delivery_dining
+            </em>
+          </a>
+          <a (click)="updateStatusCancelado()" class="cancel" matTooltip="Atualizar para Cancelado" matTooltipClass="tooltip"
+            *ngIf="status != 'CANCELADO'">
+            <em class="material-icons">
+              cancel
+            </em>
+          </a>
+        </div>
       </div>
 
       <div class="venda-title">
@@ -64,4 +84,5 @@
       Cancelar
   </button>
 </div>
+
 

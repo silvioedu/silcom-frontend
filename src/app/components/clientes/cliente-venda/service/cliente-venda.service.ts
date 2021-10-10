@@ -6,6 +6,7 @@ import { ErrorHandlerService } from 'src/app/components/shared/service/error-han
 import { environment } from 'src/environments/environment';
 import { ClienteVendaInput } from '../model/cliente-venda-input.model';
 import { ClienteVenda } from '../model/cliente-venda.model';
+import { VendaStatus } from '../model/venda-status.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -59,4 +60,13 @@ export class ClienteVendaService {
       catchError(e => this.errorHandlerService.errorHandler(e))
     )
   }
+
+  updateStatus(clienteId: string, id: string, vendaStatus: VendaStatus): Observable<ClienteVenda> {
+    const url = `${this.baseUrl + clienteId + this.finalUrl + id}/update-status?status=${vendaStatus}`
+    return this.httpClient.put<ClienteVenda>(url, null).pipe(
+      map(obj => obj),
+      catchError(e => this.errorHandlerService.errorHandler(e))
+    )
+  }
+
 }
