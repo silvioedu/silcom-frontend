@@ -67,8 +67,9 @@ export class ClienteVendaUpdateComponent implements OnInit {
 
     this.clienteVendaService.update(this.clienteId, this.vendaId, this.clienteVenda).subscribe(() => {
       this.messageService.showMessage("Venda do cliente atualizada com sucesso.")
-      const uri = `clientes/${this.clienteId}/vendas`
-      this.router.navigate([uri])
+      this.refresh()
+      // const uri = `clientes/${this.clienteId}/vendas`
+      // this.router.navigate([uri])
     })
   }
 
@@ -99,8 +100,8 @@ export class ClienteVendaUpdateComponent implements OnInit {
 
   }
 
-  updateStatusFechado() {
-    this.updateStatus(VendaStatus.FECHADO)
+  updateStatusConfirmado() {
+    this.updateStatus(VendaStatus.CONFIRMADO)
   }
 
   updateStatusEntregue() {
@@ -109,6 +110,22 @@ export class ClienteVendaUpdateComponent implements OnInit {
 
   updateStatusCancelado() {
     this.updateStatus(VendaStatus.CANCELADO)
+  }
+
+  isStatusConfirmado(): boolean {
+    return this.status == VendaStatus.CONFIRMADO
+  }
+  isStatusEntregue(): boolean {
+    return this.status == VendaStatus.ENTREGUE
+  }
+
+  isStatusCancelado(): boolean {
+    return this.status == VendaStatus.CANCELADO
+  }
+
+  findDescontoAgravo() {
+    this.clienteVenda.desconto = this.formaPagamentoTipos.find(fp => fp.id === this.selected.formaPagamentoTipo)?.desconto || 0
+    this.clienteVenda.agravo = this.formaPagamentoTipos.find(fp => fp.id === this.selected.formaPagamentoTipo)?.agravo || 0
   }
 
   private updateStatus(status: VendaStatus) {

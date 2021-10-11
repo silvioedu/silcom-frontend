@@ -19,27 +19,27 @@
         <mat-form-field class="venda-item-disabled">
           <input matInput placeholder="Status" [ngModel]="status" name="status" disabled
             [ngClass]="{
-              'check': status == 'FECHADO',
-              'deliver' : status == 'ENTREGUE',
-              'cancel' : status == 'CANCELADO'
+              'check': isStatusConfirmado(),
+              'deliver' : isStatusEntregue(),
+              'cancel' : isStatusCancelado()
             }">
         </mat-form-field>
 
         <div class="status">
-          <a (click)="updateStatusFechado()" class="check" matTooltip="Atualizar para Fechado" matTooltipClass="tooltip"
-            *ngIf="status != 'FECHADO'">
+          <a (click)="updateStatusConfirmado()" class="check" matTooltip="Atualizar para Confirmado" matTooltipClass="tooltip"
+            *ngIf="!isStatusConfirmado()">
             <em class="material-icons">
               check
             </em>
           </a>
           <a (click)="updateStatusEntregue()" class="deliver" matTooltip="Atualizar para Entregue" matTooltipClass="tooltip"
-            *ngIf="status != 'ENTREGUE'">
+            *ngIf="!isStatusEntregue()">
             <em class="material-icons">
               delivery_dining
             </em>
           </a>
           <a (click)="updateStatusCancelado()" class="cancel" matTooltip="Atualizar para Cancelado" matTooltipClass="tooltip"
-            *ngIf="status != 'CANCELADO'">
+            *ngIf="!isStatusCancelado()">
             <em class="material-icons">
               cancel
             </em>
@@ -50,7 +50,7 @@
       <div class="venda-title">
         <mat-form-field class="venda-item">
           <mat-label>Forma de pagamento</mat-label>
-          <mat-select [(ngModel)]="selected.formaPagamentoTipo" name="formaPagamentoTipo" [disabled]="disableAction()">
+          <mat-select [(ngModel)]="selected.formaPagamentoTipo" name="formaPagamentoTipo" [disabled]="disableAction()" (selectionChange)="findDescontoAgravo()">
             <mat-option *ngFor="let formaPagamentoTipo of formaPagamentoTipos" [value]="formaPagamentoTipo.id">
               {{ formaPagamentoTipo.nome }}
             </mat-option>
@@ -58,11 +58,11 @@
         </mat-form-field>
 
         <mat-form-field class="venda-item">
-          <input type="number" [(ngModel)]="clienteVenda.desconto" matInput placeholder="Desconto (%)" name="desconto" [disabled]="disableAction()">
+          <input type="number" [(ngModel)]="clienteVenda.desconto" matInput placeholder="Desconto (%)" name="desconto" [disabled]="disableAction()" min="0">
         </mat-form-field>
 
         <mat-form-field class="venda-item">
-          <input type="number" [(ngModel)]="clienteVenda.agravo" matInput placeholder="Agravo (%)" name="agravo" [disabled]="disableAction()">
+          <input type="number" [(ngModel)]="clienteVenda.agravo" matInput placeholder="Agravo (%)" name="agravo" [disabled]="disableAction()" min="0">
         </mat-form-field>
 
         <mat-form-field class="venda-item">
@@ -87,7 +87,7 @@
   </button>
 
   <button type="button" mat-raised-button (click)="cancel()">
-      Cancelar
+      Voltar
   </button>
 </div>
 
