@@ -18,7 +18,8 @@ export class ClienteVendaItemUpdateComponent implements OnInit {
   clienteVendaItem: ClienteVendaItemInput = {
     produtoId: 0,
     quantidade: 0,
-    valorUnitario: 0
+    valorUnitario: 0,
+    tamanho: 0
   }
 
   produtos: ProdutoResumo[] = []
@@ -43,6 +44,7 @@ export class ClienteVendaItemUpdateComponent implements OnInit {
     this.clienteVendaItemService.readById(this.param.clienteId, this.param.vendaId, this.param.itemId).subscribe(item => {
       this.clienteVendaItem = {
         produtoId: this.produtos.find(r => r.codigo === item.produtoCodigo)?.id || 0,
+        tamanho: item.tamanho,
         quantidade: item.quantidade,
         valorUnitario: item.valorUnitario
       }

@@ -16,6 +16,10 @@
       </mat-form-field>
 
       <mat-form-field>
+        <input type="number" [(ngModel)]="clienteVendaItem.tamanho" matInput placeholder="Tamanho" name="tamanho" min="0">
+      </mat-form-field>
+
+      <mat-form-field>
         <input type="number" [(ngModel)]="clienteVendaItem.quantidade" matInput placeholder="Quantidade" name="quantidade" min="0">
       </mat-form-field>
 
@@ -26,6 +30,6 @@
 </div>
 
 <div mat-dialog-actions>
-  <button mat-button (click)="update()" color="primary">Adicionar</button>
+  <button mat-button (click)="update()" color="primary">Atualizar</button>
   <button mat-button mat-dialog-close="clienteVendaItem">Cancelar</button>
 </div>

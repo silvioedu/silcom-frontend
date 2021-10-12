@@ -20,7 +20,7 @@ export class ClienteVendaItemReadComponent implements OnInit {
 
   dataSource!: MatTableDataSource<ClienteVendaItem>;
 
-  displayedColumns: string[] = ['id', 'produtoCodigo', 'quantidade', 'valorUnitario', 'dataCriacao', 'dataAtualizacao', 'acoes']
+  displayedColumns: string[] = ['id', 'produtoCodigo', 'tamanho', 'quantidade', 'valorUnitario', 'dataCriacao', 'dataAtualizacao', 'acoes']
 
   clienteId = ''
   vendaId = ''

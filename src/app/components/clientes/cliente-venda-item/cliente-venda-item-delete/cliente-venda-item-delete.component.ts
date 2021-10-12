@@ -19,7 +19,8 @@ export class ClienteVendaItemDeleteComponent implements OnInit {
     quantidade: 0,
     valorUnitario: 0,
     dataCriacao: 0,
-    dataAtualizacao: 0
+    dataAtualizacao: 0,
+    tamanho: 0
   }
 
   selected = {

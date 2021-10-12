@@ -17,7 +17,8 @@ export class ClienteVendaItemCreateComponent implements OnInit {
   clienteVendaItem: ClienteVendaItemInput = {
     produtoId: 0,
     quantidade: 0,
-    valorUnitario: 0
+    valorUnitario: 0,
+    tamanho: 0
   }
 
   produtos: ProdutoResumo[] = []
