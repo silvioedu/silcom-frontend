@@ -7,7 +7,7 @@
 <div mat-dialog-content>
   <form>
       <mat-form-field>
-        <mat-label>Produto</mat-label>
+        <label>Produto</label>
         <mat-select [(ngModel)]="selected.produtoId" name="produtoId">
           <mat-option *ngFor="let produto of produtos" [value]="produto.id">
             {{ produto.codigo }}

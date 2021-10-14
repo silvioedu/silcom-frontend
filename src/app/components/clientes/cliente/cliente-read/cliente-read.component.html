@@ -66,27 +66,27 @@
     <ng-container matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef id="lblacoes">Ações</th>
       <td mat-cell *matCellDef="let row">
-        <a routerLink="/clientes/{{ row.id }}/contatos" class="contact" matTooltip="Contatos" matTooltipClass="tooltip">
+        <a routerLink="/clientes/{{ row.id }}/contatos" class="other-action" matTooltip="Contatos" matTooltipClass="tooltip">
           <em class="material-icons">
             phone
           </em>
         </a>
-        <a routerLink="/clientes/{{ row.id }}/documentos" class="contact" matTooltip="Documentos" matTooltipClass="tooltip">
+        <a routerLink="/clientes/{{ row.id }}/documentos" class="other-action" matTooltip="Documentos" matTooltipClass="tooltip">
           <em class="material-icons">
             fingerprint
           </em>
         </a>
-        <a routerLink="/clientes/{{ row.id }}/enderecos" class="contact" matTooltip="Endereços" matTooltipClass="tooltip">
+        <a routerLink="/clientes/{{ row.id }}/enderecos" class="other-action" matTooltip="Endereços" matTooltipClass="tooltip">
           <em class="material-icons">
             store
           </em>
         </a>
-        <a routerLink="/clientes/{{ row.id }}/lembretes" class="contact" matTooltip="Lembretes" matTooltipClass="tooltip">
+        <a routerLink="/clientes/{{ row.id }}/lembretes" class="other-action" matTooltip="Lembretes" matTooltipClass="tooltip">
           <em class="material-icons">
             notifications
           </em>
         </a>
-        <a routerLink="/clientes/{{ row.id }}/vendas" class="contact" matTooltip="Vendas" matTooltipClass="tooltip">
+        <a routerLink="/clientes/{{ row.id }}/vendas" class="other-action" matTooltip="Vendas" matTooltipClass="tooltip">
           <em class="material-icons">
             shopping_cart
           </em>

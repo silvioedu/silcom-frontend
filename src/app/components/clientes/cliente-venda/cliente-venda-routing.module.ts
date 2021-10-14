@@ -1,3 +1,4 @@
+import { ClienteVendaSummaryComponent } from './cliente-venda-summary/cliente-venda-summary.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClienteVendaCreateComponent } from './cliente-venda-create/cliente-venda-create.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: ':vendaId/update',
     component: ClienteVendaUpdateComponent
+  },
+  {
+    path: ':vendaId/summary',
+    component: ClienteVendaSummaryComponent
   }
 ];
 

@@ -37,6 +37,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #f2582eb0;
 }
 
+.other-action {
+  color: cadetblue;
+}
+
 .tooltip {
   /* background-color: cadetblue; */
   font-size: small;

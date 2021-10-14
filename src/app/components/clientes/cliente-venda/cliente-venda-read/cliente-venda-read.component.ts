@@ -1,4 +1,6 @@
+import { ClienteVendaSummaryComponent } from './../cliente-venda-summary/cliente-venda-summary.component';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClienteVenda } from '../model/cliente-venda.model';
@@ -19,7 +21,8 @@ export class ClienteVendaReadComponent implements OnInit {
 
   constructor(private clienteVendaService: ClienteVendaService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    public dialog: MatDialog) {
     // intentionally unscoped
   }
 
@@ -45,4 +48,19 @@ export class ClienteVendaReadComponent implements OnInit {
   cancel(): void {
     this.router.navigate(['clientes/'])
   }
+
+  openPrintPDF(vendaId: number): void {
+    const dialogRef = this.dialog.open(ClienteVendaSummaryComponent, {
+      data: {
+        clienteId: this.clienteId,
+        vendaId: vendaId
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("Fechou")
+    });
+
+  }
+
 }

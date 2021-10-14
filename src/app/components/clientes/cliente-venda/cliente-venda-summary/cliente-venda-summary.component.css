@@ -1,0 +1,152 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#content{
+  position: relative;
+  /* background-color: lightblue; */
+  /* width: 2480px;
+  height: 3508px; */
+  width: 600px;
+  height: 841px;
+  display: flex;
+  flex-direction: column;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  line-height: 0.8rem;
+}
+
+.cabecalho {
+  /* background-color: blueviolet; */
+  margin: 10px 40px 10px 40px;
+  width: auto;
+  height: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cabecalho .logo {
+  height: 100%;
+}
+.cabecalho-pedido {
+  /* background-color: aquamarine; */
+  margin: 10px 40px 10px 40px;
+  width: auto;
+}
+.cabecalho-pedido table {
+  width: 100%;
+  border: 0.5px solid black;
+  text-align: center;
+}
+.cabecalho-pedido table tbody {
+  height: 1.5rem;
+}
+
+.cabecalho-cliente {
+  /* background-color: brown; */
+  margin: 10px 40px 10px 40px;
+  width: auto;
+  /* height: 500px; */
+}
+.cabecalho-cliente table {
+  width: 100%;
+  border: 0.5px solid black;
+}
+.cabecalho-cliente table tr {
+  height: 1.5rem;
+}
+.cabecalho-cliente table .field {
+  padding: 10px;
+  text-align: right;
+  width: 20%;
+}
+.cabecalho-cliente table .value {
+  padding: 10px;
+  text-align: left;
+}
+.cabecalho-cliente table .table-rodape{
+  font-style: italic;
+  text-align: right;
+  padding-right: 20px;
+}
+
+.itens {
+  /* background-color: brown; */
+  margin: 10px 40px 10px 40px;
+  width: auto;
+  /* height: 500px; */
+}
+.itens table {
+  width: 100%;
+  border: 0.5px solid black;
+}
+.itens .center {
+  text-align: center;
+}
+.itens .right {
+  text-align: right;
+}
+.itens table tbody tr td {
+  padding: 0px 20px;
+}
+.itens table tfoot {
+  font-weight: 900;
+}
+.itens table tfoot tr td {
+  padding: 0px 20px;
+}
+
+.rodape {
+  /* background-color: chocolate; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.rodape .assinaturas table {
+  width: 100%;
+  /* border: 1px solid black; */
+}
+.rodape .assinaturas table tbody tr td{
+  width: 50%;
+  padding: 0px 50px;
+  text-align: center;
+}
+.rodape hr{
+  height: 2px;
+  border-width:0;
+  color:gray;
+  background-color:gray;
+}
+.rodape .dados-empresa {
+  /* background-color: blue; */
+  margin: 50px 0px 10px 0px;
+  justify-content: center;
+}
+.rodape .dados-empresa table {
+  width: 100%;
+  /* border: 1px solid black; */
+}
+.rodape .dados-empresa table tbody tr td{
+  text-align: center;
+}
+
+
+.field {
+  background-color: rgba(128, 128, 128, 0.8);
+  height: 0.5rem;
+  font-weight: 900;
+  text-align: center;
+}
+.value {
+  /* background-color: rgba(128, 128, 128, 0.20); */
+  height: 0.5rem;
+
+}
+.emphasis {
+  font-size: 1.1rem;
+  font-weight: 900;
+}

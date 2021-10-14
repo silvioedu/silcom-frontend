@@ -1,0 +1,133 @@
+<div mat-dialog-content id="content" #content>
+  <div class="cabecalho">
+    <img src="assets/img/logo.PNG" class="logo" alt="">
+    <p class="emphasis">Pedido nº {{vendaSummary.id}}</p>
+  </div>
+
+  <div class="cabecalho-pedido">
+    <table>
+      <thead>
+        <tr>
+          <th id="ltldata" class="field">Data:</th>
+          <th id="ltlformapagamento" class="field">Forma de pagamento:</th>
+          <th id="ltlemitirnota" class="field">Emitir nota:</th>
+          <th id="ltlstatus" class="field">Status:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="value">{{ vendaSummary.dataCriacao | numberToDate }}</td>
+          <td class="value">{{ vendaSummary.formaPagamento }}</td>
+          <td class="value">{{ vendaSummary.emitirNota | booleanToString }}</td>
+          <td class="value">{{ vendaSummary.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cabecalho-cliente">
+    <table>
+      <tbody>
+        <tr>
+          <td class="field">Razão Social:</td>
+          <td class="value emphasis">{{ vendaSummary.clienteRazaoSocial }}</td>
+        </tr>
+        <tr>
+          <td class="field">Documentos:</td>
+          <td class="value">{{ vendaSummary.documento }}</td>
+        </tr>
+        <tr>
+          <td class="field">Endereço:</td>
+          <td class="value">{{ vendaSummary.endereco }}</td>
+        </tr>
+        <tr>
+          <td class="field">E-mail:</td>
+          <td class="value">{{ vendaSummary.email }}</td>
+        </tr>
+        <tr>
+          <td class="field">Contato:</td>
+          <td class="value">{{ vendaSummary.telefone }}</td>
+        </tr>
+        <tr>
+          <td class="field">Observações:</td>
+          <td class="value">{{ vendaSummary.observacoes }}</td>
+        </tr>
+        <tr>
+          <td class="table-rodape" colspan="2">Prazo de troca: 30 dias</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="itens">
+    <table>
+      <thead>
+        <th id="ltlcodigo" class="field">Código:</th>
+        <th id="ltldescricao" class="field">Descrição:</th>
+        <th id="ltltamanho" class="field">Tamanho:</th>
+        <th id="ltlquantidade" class="field">Quantidade:</th>
+        <th id="ltlvalorunitario" class="field">Valor Unitário:</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of vendaSummary.itens">
+          <td class="value center">{{ item.codigo }}</td>
+          <td class="value">{{ item.descricao }}</td>
+          <td class="value center">{{ item.tamanho }}</td>
+          <td class="value center">{{ item.quantidade }}</td>
+          <td class="value right">{{ item.valorUnitario | currency:'BRL' }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="field right"colspan="3">Total Geral</td>
+          <td class="value center">{{ totalItens }}</td>
+          <td class="value right">{{ vendaSummary.valorTotal | currency:'BRL' }}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div class="rodape">
+    <div class="assinaturas">
+      <table>
+        <tbody>
+          <tr>
+            <td><hr></td>
+            <td><hr></td>
+          </tr>
+          <tr>
+            <td>SILCOM</td>
+            <td>{{ vendaSummary.clienteRazaoSocial }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="dados-empresa">
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="3"><hr></td>
+          </tr>
+          <tr>
+            <td>{{ empresa.contato }}</td>
+            <td>{{ empresa.email }}</td>
+            <td>{{ empresa.site }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr>
+            <td>CNPJ: {{ empresa.cnpj }}</td>
+            <td>IE: {{ empresa.inscricaoEstadual }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div mat-dialog-actions class="menu">
+  <button mat-button (click)="downloadPDF()" color="primary">Download</button>
+  <button mat-button (click)="close()">Cancelar</button>
+</div>

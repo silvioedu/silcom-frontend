@@ -1,3 +1,4 @@
+import { VendaReport } from './../model/venda-report.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -64,6 +65,14 @@ export class ClienteVendaService {
   updateStatus(clienteId: string, id: string, vendaStatus: VendaStatus): Observable<ClienteVenda> {
     const url = `${this.baseUrl + clienteId + this.finalUrl + id}/update-status?status=${vendaStatus}`
     return this.httpClient.put<ClienteVenda>(url, null).pipe(
+      map(obj => obj),
+      catchError(e => this.errorHandlerService.errorHandler(e))
+    )
+  }
+
+  readSummary(clienteId: string, id: string): Observable<VendaReport> {
+    const url = `${this.baseUrl + clienteId + this.finalUrl + id}/summary`
+    return this.httpClient.get<VendaReport>(url).pipe(
       map(obj => obj),
       catchError(e => this.errorHandlerService.errorHandler(e))
     )

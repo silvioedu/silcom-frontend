@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { PipeModule } from '../../shared/pipe/pipe.module';
+import { ClienteVendaSummaryComponent } from './cliente-venda-summary/cliente-venda-summary.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { PipeModule } from '../../shared/pipe/pipe.module';
     ClienteVendaCreateComponent,
     ClienteVendaReadComponent,
     ClienteVendaUpdateComponent,
-    ClienteVendaDeleteComponent
+    ClienteVendaDeleteComponent,
+    ClienteVendaSummaryComponent
   ],
   imports: [
     CommonModule,
